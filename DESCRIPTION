@@ -12,3 +12,5 @@ Imports:
     splitstackshape,
     plyr
 RoxygenNote: 5.0.1
+Suggests: testthat,
+    covr
