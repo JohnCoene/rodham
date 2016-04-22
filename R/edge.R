@@ -25,16 +25,16 @@ edges_emails <- function(emails, ...){
   }
 
   # filter
-  dat <- subset(dat, to != "")
-  dat <- subset(dat, from != "")
+  emails <- subset(emails, to != "")
+  emails <- subset(emails, from != "")
 
   # clean
-  dat$to <- trimws(dat$to)
-  dat$from <- trimws(dat$fr)
+  emails$to <- trimws(emails$to)
+  emails$from <- trimws(emails$fr)
 
   # split
-  clean <- dat[with(dat, !grepl(";", to) & !grepl(";", from)),]
-  raw <- dat[with(dat, grepl(";", to) | grepl(";", from)),]
+  clean <- emails[with(emails, !grepl(";", to) & !grepl(";", from)),]
+  raw <- emails[with(emails, grepl(";", to) | grepl(";", from)),]
 
   tail <- raw2clean(raw)
 
