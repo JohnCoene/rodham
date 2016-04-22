@@ -1,0 +1,14 @@
+Package: rodham
+Type: Package
+Title: Fetch Hillary Rodham Clinton's emails
+Version: 0.1.0
+Author: John Coene
+Maintainer: John Coene <jcoenep@gmail.com>
+Description: Fetch and process Hillary Rodham Clinton's "personal" emails.
+License: MIT + file LICENSE
+LazyData: TRUE
+Imports:
+    jsonlite,
+    splitstackshape,
+    plyr
+RoxygenNote: 5.0.1

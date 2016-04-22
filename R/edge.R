@@ -1,0 +1,66 @@
+#' Network the treacherous
+#'
+#' @description Builds edge list from emails using \code{from} and \code{to},
+#' edge source and target respectively.
+#'
+#' @param emails Data frame of emails as returned by \code{\link{search_emails}}
+#' @param ... any additional column to keep as meta-data
+#'
+#' @examples
+#' \dontrun{
+#' emails <- search_emails()
+#'
+#' edges <- edges_emails(emails)
+#' }
+#'
+#' @seealso \code{\link{search_emails}}
+#'
+#' @author John Coene \email{jcoenep@@gmail.com}
+#'
+#' @export
+edges_emails <- function(emails, ...){
+
+  if (missing(emails)) {
+    stop("Missing emails, see search_emails")
+  }
+
+  # filter
+  dat <- subset(dat, to != "")
+  dat <- subset(dat, from != "")
+
+  # clean
+  dat$to <- trimws(dat$to)
+  dat$from <- trimws(dat$fr)
+
+  # split
+  clean <- dat[with(dat, !grepl(";", to) & !grepl(";", from)),]
+  raw <- dat[with(dat, grepl(";", to) | grepl(";", from)),]
+
+  tail <- raw2clean(raw)
+
+  edges <- rbind.data.frame(clean, tail)
+
+  src_tgt <- data.frame(from = edges$from, to = edges$to)
+
+  args <- unlist(list(...))
+
+  if(!is.null(args)){
+    edges$to <- NULL
+    edges$from <- NULL
+    edges <- as.data.frame(edges)
+    src_tgt <- cbind.data.frame(src_tgt,
+                                edges[, which(names(edges) %in% args)])
+    names(src_tgt)[3:ncol(src_tgt)] <- args
+    src_tgt$weight <- 1
+    src_tgt <- plyr::ddply(src_tgt, c("from", "to", args), plyr::summarise,
+                           weight = sum(weight))
+  } else {
+    src_tgt$weight <- 1
+    src_tgt <- plyr::ddply(src_tgt, c("from", "to"), plyr::summarise,
+                           weight = sum(weight))
+  }
+
+  src_tgt <- plyr::arrange(src_tgt, plyr::desc(weight))
+
+  return(src_tgt)
+}
