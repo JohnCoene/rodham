@@ -4,9 +4,9 @@
 \name{rodham}
 \alias{rodham}
 \alias{rodham-package}
-\title{rodham: search Hillary's emails}
+\title{rodham: indict Hillary Rodham Clinton}
 \description{
-rodham: search Hillary's emails
+rodham: indict Hillary Rodham Clinton
 }
 \section{Functions}{
 
@@ -22,11 +22,15 @@ rodham: search Hillary's emails
 emails <- search_emails()
 
 # build graph
-edges <- edges_emails()
-nodes <- nodes_emails
+edges <- edges_emails(emails)
+nodes <- nodes_emails(emails)
 g <- igraph::graph.data.frame(edges, vertices = nodes)
 
 plot(g)
+
+# plot communities
+cm <- igraph::walktrap.community(g)
+plot(g, vertex.color = membership(cm))
 }
 
 }
