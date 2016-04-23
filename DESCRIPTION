@@ -10,7 +10,8 @@ LazyData: TRUE
 Imports:
     jsonlite,
     splitstackshape,
-    plyr
+    plyr,
+    methods
 RoxygenNote: 5.0.1
 Suggests: testthat,
     covr
