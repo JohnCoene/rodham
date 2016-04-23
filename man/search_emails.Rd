@@ -5,7 +5,7 @@
 \title{Search Rodham's emails}
 \usage{
 search_emails(subject = NULL, to = NULL, from = NULL, start = NULL,
-  end = NULL)
+  end = NULL, internal = TRUE)
 }
 \arguments{
 \item{subject}{Filter by subject, defaults to \code{NULL}(no filter).}
@@ -17,13 +17,18 @@ search_emails(subject = NULL, to = NULL, from = NULL, start = NULL,
 \item{start}{Filter by date range, defaults to \code{NULL}(no filter).}
 
 \item{end}{Filter by date range, defaults to \code{NULL}(no filter).}
+
+\item{internal}{if \code{TRUE} (default) searches the internal data set
+(see \code{data(emails)}), if \code{FALSE} fetches the data through
+the Wall Street journal API.}
 }
 \description{
 Search Hillary Rodham Clinton's \emph{personal} emails.
 }
 \details{
 There are a total of 29444 emails ranging from \code{2009-08-14} to
-\code{2014-08-13}.
+\code{2014-08-13}, please consider leaving internal to \code{TRUE} to not
+hammer the Wall Street Journal's API.
 }
 \examples{
 \dontrun{
