@@ -1,4 +1,4 @@
-#' rodham: search Hillary's emails
+#' rodham: indict Hillary Rodham Clinton
 #'
 #' @section Functions:
 #' \itemize{
@@ -9,7 +9,10 @@
 #'
 #' @examples
 #' \dontrun{
-#' # fetch emails
+#' # get emails from internal data set
+#' data(emails)
+#'
+#' # fetch emails from WSJ (avoid doing this)
 #' emails <- search_emails()
 #'
 #' # build graph
