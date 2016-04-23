@@ -20,7 +20,7 @@ devtools::install_github("JohnCoene/rodham")
 
 ```R
 # fetch emails
-emails <- search_emails()
+data(emails)
 
 # build graph
 edges <- edges_emails(emails)
@@ -30,3 +30,7 @@ g <- igraph::graph.data.frame(edges, vertices = nodes)
 # plot 
 plot(g)
 ```
+
+# Project Vault
+
+See other projects at [http://johncoene.github.io/projects/](http://johncoene.github.io/projects/)
