@@ -7,9 +7,14 @@
 #' @param from Filter by Sender, defaults to \code{NULL}(no filter).
 #' @param start Filter by date range, defaults to \code{NULL}(no filter).
 #' @param end Filter by date range, defaults to \code{NULL}(no filter).
+#' @param internal if \code{TRUE} (default) searches the internal data set
+#' (see \code{data(emails)}), if \code{FALSE} fetches the data through
+#' the Wall Street journal API. \code{data(emails)} is equivalent to internal
+#' \code{TRUE}
 #'
 #' @details There are a total of 29444 emails ranging from \code{2009-08-14} to
-#' \code{2014-08-13}.
+#' \code{2014-08-13}, please consider leaving internal to \code{TRUE} to not
+#' hammer the Wall Street Journal's API.
 #'
 #' @examples
 #' \dontrun{
@@ -20,9 +25,9 @@
 #'
 #' @export
 search_emails <- function(subject = NULL, to = NULL, from = NULL, start = NULL,
-                         end = NULL){
-  dat <- tryCatch(et("emails", envir = em), error = function(e) e)
-  if (is(dat, "error")) {
+                         end = NULL, internal = TRUE){
+
+  if (internal == FALSE) {
     uri <- paste0("http://graphics.wsj.com/hillary-clinton-email-documents/api/",
                   "search.php?subject=", subject,
                   "&text=&to=", to,
@@ -32,15 +37,30 @@ search_emails <- function(subject = NULL, to = NULL, from = NULL, start = NULL,
                   "&sort=docDate&order=desc&docid=&limit=30000&offset=0")
     json <- jsonlite::fromJSON(uri)
     if (json$total > 0) {
-      dat <- json$rows
+      emails <- json$rows
       cat(json$total, "emails returned")
-      assign("emails", dat, envir = em)
     } else if (json$total == 0){
       cat("No emails returned")
-      dat <- data.frame()
+      emails <- data.frame()
     }
   } else {
-    cat("Loading previous query.")
+
+    if (!is.null(subject)) {
+      emails <- emails[grep(subject, emails$subject),]
+    }
+    if (!is.null(to)) {
+      emails <- subset(emails, docDate == to)
+    }
+    if (!is.null(from)) {
+      emails <- subset(emails, docDate == from)
+    }
+    if (!is.null(start)) {
+      emails <- subset(emails, docDate <= start)
+    }
+    if (!is.null(end)) {
+      emails <- subset(emails, docDate >= end)
+    }
   }
-  return(dat)
+
+  return(emails)
 }
