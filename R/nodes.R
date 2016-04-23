@@ -23,6 +23,6 @@ nodes_emails <- function(emails){
                                 as.character(edges$to)))
   nodes$weight <- 1
   nodes <- plyr::ddply(nodes, "label", plyr::summarise, weight = sum(weight))
-  nodes <- plyr::arrange(nodes, desc(weight))
+  nodes <- plyr::arrange(nodes, plyr::desc(weight))
   return(nodes)
 }
