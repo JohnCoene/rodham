@@ -18,8 +18,6 @@ devtools::install_github("JohnCoene/rodham")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ```R
 # fetch emails
 emails <- search_emails()
