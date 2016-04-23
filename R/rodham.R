@@ -13,7 +13,7 @@
 #' data(emails)
 #'
 #' # fetch emails from WSJ (avoid doing this)
-#' emails <- search_emails()
+#' # emails <- search_emails()
 #'
 #' # build graph
 #' edges <- edges_emails(emails)
