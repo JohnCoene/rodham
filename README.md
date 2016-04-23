@@ -3,6 +3,8 @@
 [![Coverage Status](https://img.shields.io/coveralls/JohnCoene/rodham.svg)](https://coveralls.io/r/JohnCoene/rodham?branch=master)
 [![Coverage Status](https://img.shields.io/codecov/c/github/JohnCoene/rodham/master.svg)](https://codecov.io/github/JohnCoene/rodham?branch=master)
 
+![img](https://raw.githubusercontent.com/JohnCoene/projects/gh-pages/img/modals/rodham.JPG)
+
 # rodham
 
 Fetch and process Hillary Rodham Clinton's *personal* emails.
