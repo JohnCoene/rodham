@@ -20,7 +20,8 @@ search_emails(subject = NULL, to = NULL, from = NULL, start = NULL,
 
 \item{internal}{if \code{TRUE} (default) searches the internal data set
 (see \code{data(emails)}), if \code{FALSE} fetches the data through
-the Wall Street journal API.}
+the Wall Street journal API. \code{data(emails)} is equivalent to internal
+\code{TRUE}}
 }
 \description{
 Search Hillary Rodham Clinton's \emph{personal} emails.
