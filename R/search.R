@@ -30,8 +30,11 @@ search_emails <- function(subject = NULL, to = NULL, from = NULL, start = NULL,
                          end = NULL, internal = TRUE){
 
   if (internal == FALSE) {
+    if (!is.null(subject)) {
+      subject <- URLencode(subject)
+    }
     uri <- paste0("http://graphics.wsj.com/hillary-clinton-email-documents/api/",
-                  "search.php?subject=", URLencode(subject),
+                  "search.php?subject=", subject,
                   "&text=&to=", to,
                   "&from=", from,
                   "&start=", start,
