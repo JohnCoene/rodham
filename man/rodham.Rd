@@ -8,6 +8,13 @@
 \description{
 rodham: indict Hillary Rodham Clinton
 }
+\section{Dataset}{
+
+\itemize{
+\item{emails}{dataset of 29444 emails}
+}
+}
+
 \section{Functions}{
 
 \itemize{
@@ -18,8 +25,11 @@ rodham: indict Hillary Rodham Clinton
 }
 \examples{
 \dontrun{
-# fetch emails
-emails <- search_emails()
+# get emails from internal data set
+data("emails")
+
+# fetch emails from WSJ (avoid doing this)
+# emails <- search_emails()
 
 # build graph
 edges <- edges_emails(emails)
