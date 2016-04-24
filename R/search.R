@@ -2,7 +2,9 @@
 #'
 #' @description Search Hillary Rodham Clinton's \emph{personal} emails.
 #'
-#' @param subject Filter by subject, defaults to \code{NULL}(no filter).
+#' @param subject Filter by subject, defaults to \code{NULL}(no filter). If
+#' \code{internal = TRUE} then matches pattern if \code{internal = FALSE} then
+#' looks for exact match.
 #' @param to Filter by Receiver, defaults to \code{NULL}(no filter).
 #' @param from Filter by Sender, defaults to \code{NULL}(no filter).
 #' @param start Filter by date range, defaults to \code{NULL}(no filter).
@@ -29,7 +31,7 @@ search_emails <- function(subject = NULL, to = NULL, from = NULL, start = NULL,
 
   if (internal == FALSE) {
     uri <- paste0("http://graphics.wsj.com/hillary-clinton-email-documents/api/",
-                  "search.php?subject=", subject,
+                  "search.php?subject=", URLencode(subject),
                   "&text=&to=", to,
                   "&from=", from,
                   "&start=", start,

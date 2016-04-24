@@ -8,7 +8,9 @@ search_emails(subject = NULL, to = NULL, from = NULL, start = NULL,
   end = NULL, internal = TRUE)
 }
 \arguments{
-\item{subject}{Filter by subject, defaults to \code{NULL}(no filter).}
+\item{subject}{Filter by subject, defaults to \code{NULL}(no filter). If
+\code{internal = TRUE} then matches pattern if \code{internal = FALSE} then
+looks for exact match.}
 
 \item{to}{Filter by Receiver, defaults to \code{NULL}(no filter).}
 
