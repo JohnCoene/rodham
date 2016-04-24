@@ -1,5 +1,10 @@
 #' rodham: indict Hillary Rodham Clinton
 #'
+#' @section Dataset:
+#' \itemize{
+#' \item{emails}{dataset of 29444 emails}
+#' }
+#'
 #' @section Functions:
 #' \itemize{
 #' \item \code{\link{search_emails}}
@@ -10,7 +15,7 @@
 #' @examples
 #' \dontrun{
 #' # get emails from internal data set
-#' data(emails)
+#' data("emails")
 #'
 #' # fetch emails from WSJ (avoid doing this)
 #' # emails <- search_emails()
