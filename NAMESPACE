@@ -3,6 +3,5 @@
 export(edges_emails)
 export(get_emails)
 export(get_extractor)
-export(nodes_emails)
 export(search_emails)
 importFrom(methods,is)
