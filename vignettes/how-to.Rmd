@@ -1,0 +1,91 @@
+---
+title: "How to use rodham"
+author: "John Coene"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rodham}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## What is this anyway?
+
+`rodham` aims at easing access and analysis of Hillary Rodham Clinton's *personal* emails which are deemed important to the author in light of recent events, perhaps not so much the Benghazi fiasco as much as the fact she might be elected.
+
+## Get started
+
+The function `search_emails` allows fetching the list of emails that were released. These are available either by calling the Wall Street Journal's [API](graphics.wsj.com/hillary-clinton-email-documents/) or via the built-in dataset (recommended).
+
+```{r opts, echo=FALSE}
+knitr::opts_chunk$set(
+  fig.width = 7,
+  fig.height = 5
+)
+```
+
+```{r setup, echo=TRUE, eval=TRUE}
+library(rodham)
+
+# get list of emails
+data("emails")
+
+# equivalent to:
+em <- search_emails()
+
+identical(emails, em)
+```
+
+## Simple Network
+
+Using the list of emails (`data("emails")`) we can plot the network of emails using `edges_emails` which returns a list of edges meant for a directed network.
+
+```{r edges, echo=TRUE, eval=TRUE}
+edges <- edges_emails(emails)
+knitr::kable(head(edges))
+```
+
+The `weight` corresponds to the occurences of edges (number of emails). The list of edges alone allows building a simple network.
+
+```{r simple network, echo=TRUE, eval=TRUE}
+g <- igraph::graph.data.frame(edges)
+# plot network
+plot(g, layout = igraph::layout.fruchterman.reingold(g),
+     vertex.label.color = hsv(h = 0, s = 0, v = 0, alpha = 0.0), 
+     vertex.size = log1p(igraph::degree(g)) * 2, edge.arrow.size = 0.1, 
+     edge.arrow.width = 0.1, edge.width = log1p(igraph::E(g)$weight)/4,
+     vertex.frame.color="#FFFFFF")
+```
+
+## Get Actual emails
+
+In the above we gather a reasonable amount of meta-data on the emails but we do not get the actual content of the emails. To do we need to download the emails---as released---in PDF format and extract the text. First we are going to need xpdf to extract the content; you can either download it manually from ther [download setion](www.foolabs.com/xpdf/download.html) or you can use `get_extractor`.
+
+```{r get extractor, echo=TRUE, eval=FALSE}
+xpdf <- get_extractor(dest = "D:/") # get extractor
+# or if you downloaded manually point to pdftotext
+xpdf <- "your/path/xpdfbin-win-3.04/bin64/pdftotext.exe"
+```
+
+Once we have the extractor we can fetch some emails using `get_emails`, the function requires you to select a specific `release`, here are the valid ones:
+
+* Benghazi
+* June
+* July
+* August
+* September
+* October
+* November
+* January 7
+* February 13
+* January 19
+* February 29
+* December
+* Non-disclosure
+
+```{r get emails, echo=TRUE, eval=FALSE}
+dir <- "D:/rodham" # this is where the emails will be saved
+dir.create("D:/rodham") # directory must exist
+get_emails(release = "Benghazi", save.dir = dir, extractor = xpdf)
+texts <- list.files(paste0(dir, "/Benghazi")) # list extracted files
+```
