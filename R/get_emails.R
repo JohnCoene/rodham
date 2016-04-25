@@ -32,6 +32,8 @@
 #' download or try \code{\link{get_extractor}} which attempts to download and
 #' extract the appropriate text to pdf exatractor according to your OS.
 #'
+#' @return Fetches email zip file from the WSJ and extract text files in
+#' \code{save.dir}
 #' @examples
 #' \dontrun{
 #' ext <- get_extractor()
@@ -69,7 +71,7 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   files <- files[grep("pdf", files)] # only take pdf
   dest <- gsub(".pdf", ".txt", files) # name destinations for extraction
   save_dir <- file.path(save.dir, paste(release)) # build path to save
-  dir.create(release) # create director by release name
+  dir.create(save_dir) # create director by release name
   cat("Extracting content from", length(files), "pdf files...\n")
   pb <- txtProgressBar(style = 3)
   for (i in 1:length(files)) {
