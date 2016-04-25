@@ -31,6 +31,12 @@ g <- igraph::graph.data.frame(edges, vertices = nodes)
 
 # plot 
 plot(g)
+
+# get email content
+ext <- get_extractor()
+
+# get emails related to Benghazi released in December
+emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
 ```
 
 # Project Vault
