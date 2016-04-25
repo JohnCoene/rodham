@@ -23,28 +23,17 @@ edges_emails <- function(emails, ...){
   if (missing(emails)) {
     stop("Missing emails, see search_emails")
   }
-
-  # filter
-  emails <- subset(emails, to != "")
+  emails <- subset(emails, to != "") # filter
   emails <- subset(emails, from != "")
-
-  # clean
-  emails$to <- trimws(emails$to)
+  emails$to <- trimws(emails$to) # clean
   emails$from <- trimws(emails$fr)
-
-  # split
-  clean <- emails[with(emails, !grepl(";", to) & !grepl(";", from)),]
+  clean <- emails[with(emails, !grepl(";", to) & !grepl(";", from)),] # split
   raw <- emails[with(emails, grepl(";", to) | grepl(";", from)),]
-
-  tail <- raw2clean(raw)
-
-  edges <- rbind.data.frame(clean, tail)
-
-  src_tgt <- data.frame(from = edges$from, to = edges$to)
-
+  tail <- raw2clean(raw) # process raw
+  edges <- rbind.data.frame(clean, tail) # bind
+  src_tgt <- data.frame(from = edges$from, to = edges$to) # build table
   args <- unlist(list(...))
-
-  if(!is.null(args)){
+  if(!is.null(args)){ # if meta-data
     edges$to <- NULL
     edges$from <- NULL
     edges <- as.data.frame(edges)
@@ -59,8 +48,6 @@ edges_emails <- function(emails, ...){
     src_tgt <- plyr::ddply(src_tgt, c("from", "to"), plyr::summarise,
                            weight = sum(weight))
   }
-
-  src_tgt <- plyr::arrange(src_tgt, plyr::desc(weight))
-
+  src_tgt <- plyr::arrange(src_tgt, plyr::desc(weight)) # arrange by weight
   return(src_tgt)
 }
