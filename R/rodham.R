@@ -9,7 +9,6 @@
 #' \itemize{
 #' \item \code{\link{search_emails}}
 #' \item \code{\link{edges_emails}}
-#' \item \code{\link{nodes_emails}}
 #' \item \code{\link{get_emails}}
 #' \item \code{\link{get_extractor}}
 #' }
@@ -24,8 +23,7 @@
 #'
 #' # build graph
 #' edges <- edges_emails(emails)
-#' nodes <- nodes_emails(emails)
-#' g <- igraph::graph.data.frame(edges, vertices = nodes)
+#' g <- igraph::graph.data.frame(edges)
 #'
 #' plot(g)
 #'
