@@ -24,11 +24,6 @@ test_that("test all", {
   expect_equal(ncol(edges_emails(emails, "subject")), 4)
   expect_equal(names(edges_emails(emails, "subject", "docDate")),
                c("from", "to", "subject", "docDate", "weight"))
-  # nodes
-  expect_error(nodes_emails())
-  expect_equal(nrow(nodes_emails(emails)), 421)
-  expect_equal(ncol(nodes_emails(emails)), 2)
-  expect_equal(names(nodes_emails(emails)), c("label", "weight"))
   # errors get
   expect_error(get_emails())
 })
