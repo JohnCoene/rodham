@@ -9,7 +9,7 @@ search_emails(subject = NULL, to = NULL, from = NULL, start = NULL,
 }
 \arguments{
 \item{subject}{Filter by subject, defaults to \code{NULL}(no filter). If
-\code{internal = TRUE} then matches pattern if \code{internal = FALSE} then
+\code{internal = TRUE} then matches pattern, if \code{internal = FALSE} then
 looks for exact match.}
 
 \item{to}{Filter by Receiver, defaults to \code{NULL}(no filter).}
@@ -36,6 +36,9 @@ hammer the Wall Street Journal's API.
 \examples{
 \dontrun{
 emails <- search_emails()
+
+# only emails on cuba
+emails <- search_emails(subject = "Cuba")
 }
 
 }
