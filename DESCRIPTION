@@ -16,4 +16,8 @@ Imports:
     methods
 RoxygenNote: 5.0.1
 Suggests: testthat,
-    covr
+    covr,
+    knitr,
+    rmarkdown,
+    igraph
+VignetteBuilder: knitr
