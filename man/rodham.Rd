@@ -4,9 +4,9 @@
 \name{rodham}
 \alias{rodham}
 \alias{rodham-package}
-\title{rodham: indict Hillary Rodham Clinton}
+\title{rodham: Hillary Rodham Clinton emails}
 \description{
-rodham: indict Hillary Rodham Clinton
+rodham: Hillary Rodham Clinton emails
 }
 \section{Dataset}{
 
@@ -21,6 +21,8 @@ rodham: indict Hillary Rodham Clinton
 \item \code{\link{search_emails}}
 \item \code{\link{edges_emails}}
 \item \code{\link{nodes_emails}}
+\item \code{\link{get_emails}}
+\item \code{\link{get_extractor}}
 }
 }
 \examples{
@@ -41,6 +43,12 @@ plot(g)
 # plot communities
 cm <- igraph::walktrap.community(g)
 plot(g, vertex.color = membership(cm))
+
+# get extractor to get emails
+ext <- get_extractor()
+# get emails released in august
+emails_cuba <- get_emails(release = "August", save.dir = "C:/",
+                     extractor = ext)
 }
 
 }

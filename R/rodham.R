@@ -1,4 +1,4 @@
-#' rodham: indict Hillary Rodham Clinton
+#' rodham: Hillary Rodham Clinton emails
 #'
 #' @section Dataset:
 #' \itemize{
@@ -10,6 +10,8 @@
 #' \item \code{\link{search_emails}}
 #' \item \code{\link{edges_emails}}
 #' \item \code{\link{nodes_emails}}
+#' \item \code{\link{get_emails}}
+#' \item \code{\link{get_extractor}}
 #' }
 #'
 #' @examples
@@ -30,6 +32,12 @@
 #' # plot communities
 #' cm <- igraph::walktrap.community(g)
 #' plot(g, vertex.color = membership(cm))
+#'
+#' # get extractor to get emails
+#' ext <- get_extractor()
+#' # get emails released in august
+#' emails_cuba <- get_emails(release = "August", save.dir = "C:/",
+#'                      extractor = ext)
 #' }
 #'
 #' @importFrom methods is
