@@ -3,7 +3,7 @@
 #' @description Search Hillary Rodham Clinton's \emph{personal} emails.
 #'
 #' @param subject Filter by subject, defaults to \code{NULL}(no filter). If
-#' \code{internal = TRUE} then matches pattern if \code{internal = FALSE} then
+#' \code{internal = TRUE} then matches pattern, if \code{internal = FALSE} then
 #' looks for exact match.
 #' @param to Filter by Receiver, defaults to \code{NULL}(no filter).
 #' @param from Filter by Sender, defaults to \code{NULL}(no filter).
@@ -21,6 +21,9 @@
 #' @examples
 #' \dontrun{
 #' emails <- search_emails()
+#'
+#' # only emails on cuba
+#' emails <- search_emails(subject = "Cuba")
 #' }
 #'
 #' @author John Coene \email{jcoenep@@gmail.com}
@@ -28,10 +31,9 @@
 #' @export
 search_emails <- function(subject = NULL, to = NULL, from = NULL, start = NULL,
                          end = NULL, internal = TRUE){
-
-  if (internal == FALSE) {
+  if (internal == FALSE) { # encode subject if fetching from WSJ
     if (!is.null(subject)) {
-      subject <- URLencode(subject)
+      subject <- URLencode(toupper(subject))
     }
     uri <- paste0("http://graphics.wsj.com/hillary-clinton-email-documents/api/",
                   "search.php?subject=", subject,
@@ -49,9 +51,8 @@ search_emails <- function(subject = NULL, to = NULL, from = NULL, start = NULL,
       emails <- data.frame()
     }
   } else {
-
     if (!is.null(subject)) {
-      emails <- emails[grep(subject, emails$subject),]
+      emails <- emails[grep(toupper(subject), emails$subject),]
     }
     if (!is.null(to)) {
       emails <- subset(emails, docDate == to)
@@ -66,6 +67,5 @@ search_emails <- function(subject = NULL, to = NULL, from = NULL, start = NULL,
       emails <- subset(emails, docDate >= end)
     }
   }
-
   return(emails)
 }
