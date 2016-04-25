@@ -7,6 +7,8 @@
 #' @details If function fails (sorry) you can download the extractor manully
 #' from \url{http://www.foolabs.com/xpdf/}
 #'
+#' @seealso \code{\link{get_emails}}
+#'
 #' @author John Coene \email{jcoenep@@gmail.com}
 #'
 #' @export

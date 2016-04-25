@@ -19,4 +19,7 @@ from \url{http://www.foolabs.com/xpdf/}
 \author{
 John Coene \email{jcoenep@gmail.com}
 }
+\seealso{
+\code{\link{get_emails}}
+}
 
