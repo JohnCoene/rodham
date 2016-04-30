@@ -61,6 +61,11 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   if(!file.exists("C:/xpdfbin-win-3.04/bin64/pdftotext.exe")){
     stop("wrong path to extractor")
   }
+  # test extractor
+  v <- suppressWarnings(system(paste(ext, "-v")))
+  if (v != 99 && v != 0 && v != 1 && v != 2 && v != 3) {
+    stop("incorrect path to extractor, see get_extractor")
+  }
   uri <- checkRelease(release) # check release input and return URL
   temp_zip <- tempfile(fileext = ".zip") # create temp
   download.file(uri, destfile = temp_zip) # download
@@ -77,7 +82,7 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   for (i in 1:length(files)) {
     pdf <- paste0(temp_dir,"\\", files[i])
     txt <- paste0(save_dir,"/", dest[i])
-    system(paste(extractor, "-layout -nopgbrk" , pdf, txt, sep = " "),
+    system(paste(extractor, "-nopgbrk" , pdf, txt, sep = " "),
            wait = TRUE)
     setTxtProgressBar(pb, i/length(files))
   }
