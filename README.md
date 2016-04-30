@@ -37,7 +37,7 @@ ext <- get_extractor()
 # get emails related to Benghazi released in December
 emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
 ```
-See vignette for more examples.
+See vignette for more examples: `devtools::build_vignettes()`
 
 # Project Vault
 
