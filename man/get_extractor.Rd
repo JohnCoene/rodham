@@ -9,6 +9,9 @@ get_extractor(dest = "C:/")
 \arguments{
 \item{dest}{Destination folder defaults to \code{C:/}}
 }
+\value{
+Returns full path to pdftotext.exe
+}
 \description{
 Downloads and extracts pdf to text extractor, see details.
 }

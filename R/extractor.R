@@ -7,6 +7,8 @@
 #' @details If function fails (sorry) you can download the extractor manully
 #' from \url{http://www.foolabs.com/xpdf/}
 #'
+#' @return Returns full path to pdftotext.exe
+#'
 #' @seealso \code{\link{get_emails}}
 #'
 #' @author John Coene \email{jcoenep@@gmail.com}
