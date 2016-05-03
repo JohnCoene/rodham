@@ -3,6 +3,15 @@
 * ubuntu 12.04 (on travis-ci), R 3.2.4
 * win-builder (devel and release)
 
+# Second submission (2016-03-05)
+
+0 errors | 0 warnings | 2 notes
+
+* Feedback: imports from `Utils` missing, fixed with: importFrom utils URLencode download.file setTxtProgressBar txtProgressBar unzip
+* Fixed most `no visible binding for global variable`
+
+# First submission (2016-05-03)
+
 ## R CMD check results
 
 0 errors | 0 warnings | 2 notes
