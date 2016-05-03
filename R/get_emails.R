@@ -32,7 +32,9 @@
 #' extract the text to pdf exatractor.
 #'
 #' @return Fetches email zip file from the WSJ and extract text files in
-#' \code{save.dir}
+#' \code{save.dir}, returns full path to directory that contains parsed txt
+#' files.
+#'
 #' @examples
 #' \dontrun{
 #' ext <- get_extractor()
@@ -61,7 +63,7 @@ get_emails <- function(release, save.dir = getwd(), extractor){
     stop("wrong path to extractor")
   }
   # test extractor
-  v <- suppressWarnings(system(paste(ext, "-v")))
+  v <- suppressWarnings(system(paste(extractor, "-v")))
   if (v != 99 && v != 0 && v != 1 && v != 2 && v != 3) {
     stop("incorrect path to extractor, see get_extractor")
   }
@@ -87,4 +89,5 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   }
   unlink("temp_dir", recursive = TRUE) # delete temp
   close(pb)
+  message("emails .txt files saved at: ", save_dir)
 }

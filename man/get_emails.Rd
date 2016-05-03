@@ -16,7 +16,8 @@ get_emails(release, save.dir = getwd(), extractor)
 }
 \value{
 Fetches email zip file from the WSJ and extract text files in
-\code{save.dir}
+\code{save.dir}, returns full path to directory that contains parsed txt
+files.
 }
 \description{
 Get the content of Hillary Rodham Clinton's emails by release.
