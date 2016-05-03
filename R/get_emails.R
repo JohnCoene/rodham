@@ -7,10 +7,9 @@
 #' \code{getwd()}
 #' @param extractor Full path to pdf extractor (text to pdf), see details.
 #'
-#' @details Below are the valid values for \code{release}. They follow the
-#' naming convention of the
-#' \href{http://graphics.wsj.com/hillary-clinton-email-documents/}{WSJ} where
-#' each released is named after the period when it was released.
+#' @details Below are the valid values for \code{release}; follows the
+#' \href{http://graphics.wsj.com/hillary-clinton-email-documents/}{WSJ} naming
+#' convention.
 #' \itemize{
 #' \item Benghazi
 #' \item June
@@ -27,10 +26,10 @@
 #' \item Non-disclosure
 #' }
 #'
-#' The \code{extractor} argument is the full path to your \code{pdftotext}
+#' The \code{extractor} argument is the full path to your pdftotext.exe
 #' extractor; visit \href{http://www.foolabs.com/xpdf/download.html}{xpdf} to
 #' download or try \code{\link{get_extractor}} which attempts to download and
-#' extract the appropriate text to pdf exatractor according to your OS.
+#' extract the text to pdf exatractor.
 #'
 #' @return Fetches email zip file from the WSJ and extract text files in
 #' \code{save.dir}
