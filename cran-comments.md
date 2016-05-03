@@ -9,7 +9,7 @@
 
 * This is a new release.
 * `no visible binding for global variable`... No actual global variables, unquoted variables used *mainly* in `plyr` package FUN. 
-* `found 59 marked UTF-8 strings` "fixed" with R (>= 2.10) dependency
+* `found 59 marked UTF-8 strings` "fixed" by adding R (>= 2.10) dependency in description
 
 ## Reverse dependencies
 
