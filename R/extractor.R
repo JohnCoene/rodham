@@ -4,8 +4,8 @@
 #'
 #' @param dest Destination folder defaults to \code{C:/}
 #'
-#' @details If function fails (sorry) you can download the extractor manully
-#' from \url{http://www.foolabs.com/xpdf/}
+#' @details If function fails (sorry - tested on Windows) you can download the
+#' extractor manually from \url{http://www.foolabs.com/xpdf/}
 #'
 #' @return Returns full path to pdftotext.exe
 #'
@@ -23,9 +23,9 @@ get_extractor <- function(dest = "C:/"){
   unlink("temp_zip", recursive=TRUE) # delete temp zip once unzipped
   p <- list.files(paste0(dest, "xpdfbin-win-3.04/bin64/"))
   p <- p[grep("pdftotext", p)]
-  message("Successfully uzipped, use: \n",
-          p, "\n",
-          "as extractor in get_emails FUN")
+  message("xpdf successfully uzipped, use: \n",
+          dest, "xpdfbin-win-3.04/bin64/", p, "\n",
+          "as extractor in get_emails")
   return(p)
 }
 

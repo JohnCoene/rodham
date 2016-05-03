@@ -16,7 +16,7 @@ Returns full path to pdftotext.exe
 Downloads and extracts pdf to text extractor, see details.
 }
 \details{
-If function fails (sorry) you can download the extractor manully
+If function fails (sorry - tested on Windows) you can download the extractor manully
 from \url{http://www.foolabs.com/xpdf/}
 }
 \author{
