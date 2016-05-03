@@ -90,4 +90,5 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   unlink("temp_dir", recursive = TRUE) # delete temp
   close(pb)
   message("emails .txt files saved at: ", save_dir)
+  return(save_dir)
 }
