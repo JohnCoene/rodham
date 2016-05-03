@@ -4,10 +4,11 @@
 \alias{edges_emails}
 \title{Network the treacherous}
 \usage{
-edges_emails(emails, ...)
+edges_emails(emails = emails, ...)
 }
 \arguments{
-\item{emails}{Data frame of emails as returned by \code{\link{search_emails}}}
+\item{emails}{Data frame of emails as returned by \code{\link{search_emails}},
+defaults to \code{emails} (see \code{\link{emails}})}
 
 \item{...}{any additional column to keep as meta-data}
 }
