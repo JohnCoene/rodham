@@ -13,7 +13,8 @@ Imports:
     jsonlite,
     splitstackshape,
     plyr,
-    methods
+    methods,
+    utils
 RoxygenNote: 5.0.1
 Suggests: testthat,
     covr,
