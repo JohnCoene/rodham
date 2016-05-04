@@ -36,6 +36,10 @@ ext <- get_extractor()
 
 # get emails related to Benghazi released in December
 emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
+files <- list.files(emails_bengh) # list files
+content <- lapply(1:length(files), function(x){
+    readLines(paste0(emails_bengh, "/", files[[x]]))
+})
 ```
 See vignette for more examples: `devtools::build_vignettes()`
 
