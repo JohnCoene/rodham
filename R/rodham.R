@@ -34,7 +34,10 @@
 #' aug_emails <- get_emails(release = "August", save.dir = "C:/",
 #'                          extractor = ext)
 #'
-#' august_emails <- list.files(aug_emails)
+#' files <- list.files(aug_emails)
+#' content <- lapply(1:length(files), function(x){
+#'    readLines(paste0(aug_emails, "/", files[[x]]))
+#' })
 #' }
 #'
 #' @importFrom methods is
