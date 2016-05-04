@@ -4,11 +4,12 @@
 #'
 #' @param dest Destination folder defaults to \code{C:/}
 #'
-#' @details If function fails (sorry - tested on Windows) you can download the
+#' @details If function fails you can download the
 #' extractor manually from \url{http://www.foolabs.com/xpdf/}
+#' (tested on Windows only)
 #'
 #' @return Returns full path to pdftotext.exe
-#'
+#'s
 #' @seealso \code{\link{get_emails}}
 #'
 #' @author John Coene \email{jcoenep@@gmail.com}
@@ -26,6 +27,6 @@ get_extractor <- function(dest = "C:/"){
   message("xpdf successfully uzipped, use: \n",
           dest, "xpdfbin-win-3.04/bin64/", p, "\n",
           "as extractor in get_emails")
-  return(p)
+  return(paste0(dest, "xpdfbin-win-3.04/bin64/", p))
 }
 
