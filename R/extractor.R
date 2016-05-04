@@ -9,7 +9,7 @@
 #' (tested on Windows only)
 #'
 #' @return Returns full path to pdftotext.exe
-#'s
+#'
 #' @seealso \code{\link{get_emails}}
 #'
 #' @author John Coene \email{jcoenep@@gmail.com}
