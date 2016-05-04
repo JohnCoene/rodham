@@ -11,7 +11,7 @@ vignette: >
 
 ## What is this anyway?
 
-`rodham` aims at easing access and analysis of Hillary Rodham Clinton's *personal* emails which are deemed important to the author in light of recent events, perhaps not so much the Benghazi fiasco as much as the fact she might be elected.
+`rodham` aims at easing access and analysis of Hillary Rodham Clinton's *personal* emails which are deemed important to the author in light of recent events.
 
 ## Get started
 
@@ -59,12 +59,13 @@ plot(g, layout = igraph::layout.fruchterman.reingold(g),
 
 ## Get Actual emails
 
-In the above we gather a reasonable amount of meta-data on the emails but we do not get the actual content of the emails. To do we need to download the emails---as released---in PDF format and extract the text. First we are going to need xpdf to extract the content; you can either download it manually from ther [download setion](www.foolabs.com/xpdf/download.html) or you can use `get_extractor`.
+In the above we gather a reasonable amount of meta-data on the emails but we do not get the actual content of the emails. To do so we need to download the emails---as released---in PDF format and extract the text. First we are going to need xpdf to extract the content; you can either download it manually from the [download setion](www.foolabs.com/xpdf/download.html) or you can attempt using  `get_extractor` (only tested on windows).
+`get_extractor` downloads then unzips the extractor then returns the full path to the pdftotext.exe file required for the next step.
 
 ```{r get extractor, echo=TRUE, eval=FALSE}
-xpdf <- get_extractor(dest = "D:/") # get extractor
+xpdf <- get_extractor(dest = "C:/") # get extractor
 # or if you downloaded manually point to pdftotext
-xpdf <- "your/path/xpdfbin-win-3.04/bin64/pdftotext.exe"
+# xpdf <- "your/path/xpdfbin-win-3.04/bin64/pdftotext.exe"
 ```
 
 Once we have the extractor we can fetch some emails using `get_emails`, the function requires you to select a specific `release`, here are the valid ones:
@@ -85,7 +86,15 @@ Once we have the extractor we can fetch some emails using `get_emails`, the func
 
 ```{r get emails, echo=TRUE, eval=FALSE}
 dir <- "D:/rodham" # this is where the emails will be saved
-dir.create("D:/rodham") # directory must exist
-get_emails(release = "Benghazi", save.dir = dir, extractor = xpdf)
-texts <- list.files(paste0(dir, "/Benghazi")) # list extracted files
+dir.create(dir) # directory must exist
+emails_bengh <- get_emails(release = "Benghazi", save.dir = dir, extractor = xpdf)
+```
+
+The function downloads, unzips and extracts the content from all email; note that this may take some time. The files will be extracted in a folder named after the requested `release` and its full path returned.
+
+```{r read emails, echo=TRUE, eval=FALSE}
+files <- list.files(emails_bengh) # list extracted files
+content <- lapply(1:length(files), function(x){
+  readLines(paste0(emails_bengh, "/", files[[x]])) # read files
+})
 ```
