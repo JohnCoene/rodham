@@ -57,6 +57,10 @@ emails_cuba <- get_emails(release = "August", save.dir = "C:/",
 ext <- "C:/xpdfbin-win-3.04/bin64/pdftotext.exe"
 # get emails related to Benghazi released in December
 emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
+files <- list.files(emails_bengh)
+content <- lapply(1:length(files), function(x){
+   files <- readLines(paste0(emails_bengh, "/", files[[x]]))
+})
 }
 
 }
