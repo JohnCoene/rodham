@@ -26,7 +26,7 @@ edges_emails <- function(emails = emails, ...){
   }
   emails <- emails[emails$to != "",] # filter
   emails <- emails[emails$from != "",]
-  emails$to <- trimws(emails[, "to"]) # clean
+  emails$to <- trimws(emails[, "to"]) # trim white space
   emails$from <- trimws(emails[, "from"])
   clean <- emails[with(emails, !grepl(";", to) & !grepl(";", from)),] # split
   raw <- emails[with(emails, grepl(";", to) | grepl(";", from)),]
