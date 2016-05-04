@@ -29,24 +29,23 @@ rodham: Hillary Rodham Clinton emails
 # get emails from internal data set
 data("emails")
 
-# fetch emails from WSJ (avoid doing this)
-# emails <- search_emails()
-
 # build graph
 edges <- edges_emails(emails)
 g <- igraph::graph.data.frame(edges)
-
 plot(g)
 
 # plot communities
 cm <- igraph::walktrap.community(g)
-plot(g, vertex.color = membership(cm))
+plot(cm, g)
 
-# get extractor to get emails
+# get extractor to extract content from emails
 ext <- get_extractor()
+
 # get emails released in august
-emails_cuba <- get_emails(release = "August", save.dir = "C:/",
-                     extractor = ext)
+aug_emails <- get_emails(release = "August", save.dir = "C:/",
+                         extractor = ext)
+
+august_emails <- list.files(aug_emails)
 }
 
 }
