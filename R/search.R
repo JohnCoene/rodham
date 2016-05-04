@@ -16,7 +16,8 @@
 #'
 #' @details There are a total of 29444 emails ranging from \code{2009-08-14} to
 #' \code{2014-08-13}, please consider leaving internal to \code{TRUE} to not
-#' hammer the Wall Street Journal's API.
+#' hammer the Wall Street Journal's API. \code{internal = TRUE} is equivalent
+#' to \code{\link{emails}}.
 #'
 #' @examples
 #' \dontrun{
@@ -24,6 +25,9 @@
 #'
 #' # only emails on cuba
 #' emails <- search_emails(subject = "Cuba")
+#'
+#' # only emails from Jake Sullivan since 2014
+#' j_s <- search_emails(from = "Jake Sullivan", start = as.Date("2014-01-01"))
 #' }
 #'
 #' @author John Coene \email{jcoenep@@gmail.com}
@@ -55,16 +59,16 @@ search_emails <- function(subject = NULL, to = NULL, from = NULL, start = NULL,
       emails <- emails[grep(toupper(subject), emails$subject),]
     }
     if (!is.null(to)) {
-      emails <- subset(emails, docDate == to)
+      emails <- emails[emails$to == to,]
     }
     if (!is.null(from)) {
-      emails <- subset(emails, docDate == from)
+      emails <- emails[emails$from == from,]
     }
     if (!is.null(start)) {
-      emails <- subset(emails, docDate <= start)
+      emails <- head(emails[emails$docDate <= as.Date(start),])
     }
     if (!is.null(end)) {
-      emails <- subset(emails, docDate >= end)
+      emails <- head(emails[emails$docDate >= as.Date(end),])
     }
   }
   return(emails)

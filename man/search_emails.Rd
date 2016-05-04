@@ -31,7 +31,8 @@ Search Hillary Rodham Clinton's \emph{personal} emails.
 \details{
 There are a total of 29444 emails ranging from \code{2009-08-14} to
 \code{2014-08-13}, please consider leaving internal to \code{TRUE} to not
-hammer the Wall Street Journal's API.
+hammer the Wall Street Journal's API. \code{internal = TRUE} is equivalent
+to \code{\link{emails}}.
 }
 \examples{
 \dontrun{
@@ -39,6 +40,9 @@ emails <- search_emails()
 
 # only emails on cuba
 emails <- search_emails(subject = "Cuba")
+
+# only emails from Jake Sullivan since 2014
+j_s <- search_emails(from = "Jake Sullivan", start = as.Date("2014-01-01"))
 }
 
 }
