@@ -59,7 +59,7 @@ ext <- "C:/xpdfbin-win-3.04/bin64/pdftotext.exe"
 emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
 files <- list.files(emails_bengh)
 content <- lapply(1:length(files), function(x){
-   files <- readLines(paste0(emails_bengh, "/", files[[x]]))
+   readLines(paste0(emails_bengh, "/", files[[x]]))
 })
 }
 

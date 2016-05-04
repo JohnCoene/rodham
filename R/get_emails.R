@@ -47,7 +47,7 @@
 #' emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
 #' files <- list.files(emails_bengh)
 #' content <- lapply(1:length(files), function(x){
-#'    files <- readLines(paste0(emails_bengh, "/", files[[x]]))
+#'    readLines(paste0(emails_bengh, "/", files[[x]]))
 #' })
 #' }
 #'
@@ -68,7 +68,7 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   }
   # test extractor
   v <- suppressWarnings(system(paste(extractor, "-v")))
-  if (v != 99 && v != 0 && v != 1 && v != 2 && v != 3) {
+  if (!v %in% c(99, 0, 1, 2, 3)) {
     stop("incorrect path to extractor, see get_extractor")
   }
   uri <- checkRelease(release) # check release input and return URL
