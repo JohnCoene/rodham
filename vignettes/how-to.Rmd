@@ -53,7 +53,7 @@ g <- igraph::graph.data.frame(edges)
 plot(g, layout = igraph::layout.fruchterman.reingold(g),
      vertex.label.color = hsv(h = 0, s = 0, v = 0, alpha = 0.0), 
      vertex.size = log1p(igraph::degree(g)) * 2, edge.arrow.size = 0.1, 
-     edge.arrow.width = 0.1, edge.width = log1p(igraph::E(g)$weight)/4,
+     edge.arrow.width = 0.1, edge.width = log1p(igraph::E(g)$freq)/4,
      vertex.frame.color="#FFFFFF")
 ```
 

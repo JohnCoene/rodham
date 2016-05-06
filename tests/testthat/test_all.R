@@ -23,7 +23,7 @@ test_that("test all", {
   expect_equal(ncol(edges_emails(emails)), 3)
   expect_equal(ncol(edges_emails(emails, "subject")), 4)
   expect_equal(names(edges_emails(emails, "subject", "docDate")),
-               c("from", "to", "subject", "docDate", "weight"))
+               c("from", "to", "subject", "docDate", "freq"))
   # errors get
   expect_error(get_emails())
 })
