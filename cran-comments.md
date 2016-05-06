@@ -5,10 +5,11 @@
 
 # Second submission (2016-03-05)
 
-0 errors | 0 warnings | 2 notes
+0 errors | 0 warnings | 1 note
 
 * Feedback: imports from `Utils` missing, fixed with: importFrom utils URLencode download.file setTxtProgressBar txtProgressBar unzip
-* Fixed most `no visible binding for global variable`
+* `no visible binding for global variable` NOTEs fixed
+* NOTE remaining: `found 59 marked UTF-8 strings` ~ R (>= 2.10) dependency in description
 
 # First submission (2016-05-03)
 
