@@ -44,17 +44,19 @@ convention.
 
 The \code{extractor} argument is the full path to your pdftotext.exe
 extractor; visit \href{http://www.foolabs.com/xpdf/download.html}{xpdf} to
-download or try \code{\link{get_extractor}} which attempts to download and
+download or try \code{\link{get_xpdf}} which attempts to download and
 extract the text to pdf exatractor.
 }
 \examples{
 \dontrun{
-ext <- get_extractor()
+ext <- get_xpdf()
 # get emails released in august
 emails_cuba <- get_emails(release = "August", save.dir = "C:/",
                      extractor = ext)
+
 # use manually downloaded extractor
 ext <- "C:/xpdfbin-win-3.04/bin64/pdftotext.exe"
+
 # get emails related to Benghazi released in December
 emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
 files <- list.files(emails_bengh)
@@ -68,6 +70,6 @@ content <- lapply(1:length(files), function(x){
 John Coene \email{jcoenep@gmail.com}
 }
 \seealso{
-\code{\link{get_extractor}}
+\code{\link{get_xpdf}}
 }
 

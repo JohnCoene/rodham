@@ -28,7 +28,7 @@
 #'
 #' The \code{extractor} argument is the full path to your pdftotext.exe
 #' extractor; visit \href{http://www.foolabs.com/xpdf/download.html}{xpdf} to
-#' download or try \code{\link{get_extractor}} which attempts to download and
+#' download or try \code{\link{get_xpdf}} which attempts to download and
 #' extract the text to pdf exatractor.
 #'
 #' @return Fetches email zip file from the WSJ and extract text files in
@@ -37,12 +37,14 @@
 #'
 #' @examples
 #' \dontrun{
-#' ext <- get_extractor()
+#' ext <- get_xpdf()
 #' # get emails released in august
 #' emails_cuba <- get_emails(release = "August", save.dir = "C:/",
 #'                      extractor = ext)
+#'
 #' # use manually downloaded extractor
 #' ext <- "C:/xpdfbin-win-3.04/bin64/pdftotext.exe"
+#'
 #' # get emails related to Benghazi released in December
 #' emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
 #' files <- list.files(emails_bengh)
@@ -51,7 +53,7 @@
 #' })
 #' }
 #'
-#' @seealso \code{\link{get_extractor}}
+#' @seealso \code{\link{get_xpdf}}
 #'
 #' @author John Coene \email{jcoenep@gmail.com}
 #'
@@ -69,7 +71,7 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   # test extractor
   v <- suppressWarnings(system(paste(extractor, "-v")))
   if (!v %in% c(99, 0, 1, 2, 3)) {
-    stop("incorrect path to extractor, see get_extractor")
+    stop("incorrect path to extractor, see get_xpdf")
   }
   uri <- checkRelease(release) # check release input and return URL
   temp_zip <- tempfile(fileext = ".zip") # create temp

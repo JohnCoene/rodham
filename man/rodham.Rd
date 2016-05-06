@@ -21,7 +21,7 @@ rodham: Hillary Rodham Clinton emails
 \item \code{\link{search_emails}}
 \item \code{\link{edges_emails}}
 \item \code{\link{get_emails}}
-\item \code{\link{get_extractor}}
+\item \code{\link{get_xpdf}}
 }
 }
 \examples{
@@ -39,7 +39,7 @@ cm <- igraph::walktrap.community(g)
 plot(cm, g)
 
 # get extractor to extract content from emails
-ext <- get_extractor()
+ext <- get_xpdf()
 
 # get emails released in august
 aug_emails <- get_emails(release = "August", save.dir = "C:/",

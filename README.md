@@ -32,7 +32,7 @@ g <- igraph::graph.data.frame(edges)
 plot(g)
 
 # get email content
-ext <- get_extractor()
+ext <- get_xpdf()
 
 # get emails related to Benghazi released in December
 emails_bengh <- get_emails(release = "Benghazi", extractor = ext)

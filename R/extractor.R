@@ -1,4 +1,4 @@
-#' Get pdf to text parser (xpdf)
+#' Get pdf to text extractor (xpdf)
 #'
 #' @description Downloads and extracts pdf to text extractor, see details.
 #'
@@ -8,14 +8,14 @@
 #' extractor manually from \url{http://www.foolabs.com/xpdf/}
 #' (tested on Windows only)
 #'
-#' @return Returns full path to pdftotext.exe
+#' @return Returns full path to pdftotext executable
 #'
 #' @seealso \code{\link{get_emails}}
 #'
 #' @author John Coene \email{jcoenep@@gmail.com}
 #'
 #' @export
-get_extractor <- function(dest = "C:/"){
+get_xpdf <- function(dest = "C:/"){
   os <- Sys.info()['sysname'] # get os
   lst <- OStoURI(os) # check os
   temp_zip <- tempfile(fileext = lst$ext) # create temp

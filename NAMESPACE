@@ -2,7 +2,7 @@
 
 export(edges_emails)
 export(get_emails)
-export(get_extractor)
+export(get_xpdf)
 export(search_emails)
 importFrom(methods,is)
 importFrom(utils,URLencode)
