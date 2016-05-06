@@ -20,5 +20,6 @@ Suggests: testthat,
     covr,
     knitr,
     rmarkdown,
-    igraph
+    igraph,
+    lintr
 VignetteBuilder: knitr

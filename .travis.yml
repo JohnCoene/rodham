@@ -3,6 +3,9 @@
 language: R
 sudo: false
 cache: packages
+r_github_packages:
+  - jimhester/lintr
 after_success:
   - Rscript -e 'covr::coveralls()'
   - Rscript -e 'covr::codecov()'
+  - Rscript -e 'lintr::lint_package()'
