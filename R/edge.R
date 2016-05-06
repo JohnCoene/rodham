@@ -20,7 +20,6 @@
 #'
 #' @export
 edges_emails <- function(emails = emails, ...){
-
   if (missing(emails)) {
     stop("Missing emails, see search_emails")
   }

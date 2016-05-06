@@ -78,12 +78,12 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   download.file(uri, destfile = temp_zip) # download
   temp_dir <- tempdir() # create dir
   unzip(zipfile = temp_zip, exdir = temp_dir) # unzip
-  unlink("temp_zip", recursive = TRUE) # delete temp zip once unzipped
+  unlink("temp_zip", recursive = TRUE) # delete temp once unzipped
   files <- list.files(temp_dir)  # list files
   files <- files[grep("pdf", files)] # only take pdf
   dest <- gsub(".pdf", ".txt", files) # name destinations for extraction
   save_dir <- file.path(save.dir, paste(release)) # build path to save
-  dir.create(save_dir) # create director by release name
+  dir.create(save_dir) # create directory by release name
   cat("Extracting content from", length(files), "pdf files...\n")
   pb <- txtProgressBar(style = 3)
   for (i in 1:length(files)) {
@@ -93,7 +93,7 @@ get_emails <- function(release, save.dir = getwd(), extractor){
            wait = TRUE)
     setTxtProgressBar(pb, i/length(files))
   }
-  unlink("temp_dir", recursive = TRUE) # delete temp
+  unlink("temp_dir", recursive = TRUE) # delete temp once extracted
   close(pb)
   message("emails .txt files saved at: ", save_dir)
   return(save_dir)

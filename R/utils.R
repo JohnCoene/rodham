@@ -5,9 +5,7 @@ raw2clean <- function(x){
 }
 
 checkRelease <- function(x){
-
-  x <- tolower(x)
-
+  x <- tolower(x) # norm
   if (x %in% db$name && length(x) == 1) {
     release <- db[db$name == x, "uri"]
     return(release)
