@@ -41,13 +41,10 @@ edges_emails <- function(emails = emails, ...){
     src_tgt <- cbind.data.frame(src_tgt,
                                 edges[, which(names(edges) %in% args)])
     names(src_tgt)[3:ncol(src_tgt)] <- args
-    src_tgt$weight <- 1 # compute edge weight
-    src_tgt <- plyr::ddply(src_tgt, c("from", "to", args), plyr::summarise,
-                           weight = sum(weight))
+    src_tgt <- plyr::count(src_tgt, c("from", "to", args))
   } else {
     src_tgt <- plyr::count(src_tgt)
-    names(src_tgt)[3] <- "weight"
   }
-  src_tgt <- plyr::arrange(src_tgt, plyr::desc(weight)) # arrange by weight
+  src_tgt <- src_tgt[order(-src_tgt[ncol(src_tgt)]),] # arrange by weight
   return(src_tgt)
 }
