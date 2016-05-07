@@ -3,7 +3,7 @@
 * ubuntu 12.04 (on travis-ci), R 3.2.4
 * win-builder (devel and release)
 
-# Second submission (2016-03-05)
+# Second submission (2016-03-07)
 
 0 errors | 0 warnings | 1 note
 
