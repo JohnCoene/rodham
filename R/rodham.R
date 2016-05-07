@@ -30,10 +30,13 @@
 #' # get extractor to extract content from emails
 #' ext <- get_xpdf()
 #'
+#' dir.create("./emails")
+#'
 #' # get emails released in august
-#' aug_emails <- get_emails(release = "August", save.dir = "C:/",
+#' aug_emails <- get_emails(release = "August", save.dir = "./emails",
 #'                          extractor = ext)
 #'
+#' # load txt files
 #' files <- list.files(aug_emails)
 #' content <- lapply(1:length(files), function(x){
 #'    readLines(paste0(aug_emails, "/", files[[x]]))
