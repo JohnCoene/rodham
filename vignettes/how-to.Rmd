@@ -15,7 +15,7 @@ vignette: >
 
 ## Get started
 
-The function `search_emails` allows fetching the list of emails that were released. These are available either by calling the Wall Street Journal's [API](graphics.wsj.com/hillary-clinton-email-documents/) or via the built-in dataset (recommended).
+The function `search_emails` allows fetching the list of emails that were released. These are available either by calling the Wall Street Journal's [API](http://graphics.wsj.com/hillary-clinton-email-documents/) or via the built-in dataset (recommended).
 
 ```{r opts, echo=FALSE}
 knitr::opts_chunk$set(
@@ -45,7 +45,7 @@ edges <- edges_emails(emails)
 knitr::kable(head(edges))
 ```
 
-The `weight` corresponds to the occurences of edges (number of emails). The list of edges alone allows building a simple network.
+The `freq` corresponds to the occurences of edges (number of emails). The list of edges alone allows building a simple network.
 
 ```{r simple network, echo=TRUE, eval=TRUE}
 g <- igraph::graph.data.frame(edges)
@@ -57,7 +57,7 @@ plot(g, layout = igraph::layout.fruchterman.reingold(g),
      vertex.frame.color="#FFFFFF")
 ```
 
-## Get Actual emails
+## Get emails content
 
 In the above we gather a reasonable amount of meta-data on the emails but we do not get the actual content of the emails. To do so we need to download the emails---as released---in PDF format and extract the text. First we are going to need xpdf to extract the content; you can either download it manually from the [download setion](www.foolabs.com/xpdf/download.html) or you can attempt using  `get_xpdf` (only tested on windows).
 `get_xpdf` downloads then unzips the extractor then returns the full path to the pdftotext.exe file required for the next step.
@@ -65,7 +65,7 @@ In the above we gather a reasonable amount of meta-data on the emails but we do 
 ```{r get xpdf, echo=TRUE, eval=FALSE}
 xpdf <- get_xpdf(dest = "C:/") # get extractor
 # or if you downloaded manually point to pdftotext
-# xpdf <- "your/path/xpdfbin-win-3.04/bin64/pdftotext.exe"
+xpdf <- "your/path/xpdfbin-win-3.04/bin64/pdftotext.exe"
 ```
 
 Once we have the extractor we can fetch some emails using `get_emails`, the function requires you to select a specific `release`, here are the valid ones:
@@ -85,7 +85,7 @@ Once we have the extractor we can fetch some emails using `get_emails`, the func
 * Non-disclosure
 
 ```{r get emails, echo=TRUE, eval=FALSE}
-dir <- "D:/rodham" # this is where the emails will be saved
+dir <- "./rodham" # this is where the emails will be saved
 dir.create(dir) # directory must exist
 emails_bengh <- get_emails(release = "Benghazi", save.dir = dir, extractor = xpdf)
 ```
