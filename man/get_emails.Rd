@@ -45,20 +45,27 @@ convention.
 The \code{extractor} argument is the full path to your pdftotext.exe
 extractor; visit \href{http://www.foolabs.com/xpdf/download.html}{xpdf} to
 download or try \code{\link{get_xpdf}} which attempts to download and
-extract the text to pdf exatractor.
+unzip the text to pdf extractor. See examples.
 }
 \examples{
 \dontrun{
+# get xpdf extractor
 ext <- get_xpdf()
+
+# create
+dir.create("./emails")
+
 # get emails released in august
-emails_cuba <- get_emails(release = "August", save.dir = "C:/",
+emails_aug <- get_emails(release = "August", save.dir = "./emails",
                      extractor = ext)
 
 # use manually downloaded extractor
 ext <- "C:/xpdfbin-win-3.04/bin64/pdftotext.exe"
 
 # get emails related to Benghazi released in December
-emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
+emails_bengh <- get_emails(release = "Benghazi", extractor = ext,
+                           save.dir = "./emails")
+
 files <- list.files(emails_bengh)
 content <- lapply(1:length(files), function(x){
    readLines(paste0(emails_bengh, "/", files[[x]]))
