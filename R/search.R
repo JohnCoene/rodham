@@ -65,10 +65,10 @@ search_emails <- function(subject = NULL, to = NULL, from = NULL, start = NULL,
       emails <- emails[emails$from == from,]
     }
     if (!is.null(start)) {
-      emails <- head(emails[emails$docDate <= as.Date(start),])
+      emails <- emails[emails$docDate <= as.Date(start),]
     }
     if (!is.null(end)) {
-      emails <- head(emails[emails$docDate >= as.Date(end),])
+      emails <- emails[emails$docDate >= as.Date(end),]
     }
   }
   return(emails)
