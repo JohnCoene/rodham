@@ -14,7 +14,10 @@ Fetch and process Hillary Rodham Clinton's *personal* emails.
 You can install rodham from github with:
 
 ```R
-# install.packages("devtools")
+# from CRAN
+install.packages("rodham")
+
+# dev version
 devtools::install_github("JohnCoene/rodham")
 ```
 
