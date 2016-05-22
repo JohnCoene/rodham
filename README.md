@@ -13,7 +13,7 @@ Fetch and process Hillary Rodham Clinton's *personal* emails.
 
 ## Installation
 
-You can install rodham from github with:
+You can install rodham from CRAN or Github with:
 
 ```R
 # from CRAN
