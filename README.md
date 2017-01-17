@@ -36,7 +36,7 @@ g <- igraph::graph.data.frame(edges)
 # plot 
 plot(g)
 
-# get email content
+# get pdf extractor
 ext <- get_xpdf()
 
 # get emails related to Benghazi released in December
@@ -46,7 +46,6 @@ content <- lapply(1:length(files), function(x){
     readLines(paste0(emails_bengh, "/", files[[x]]))
 })
 ```
-See [vignette](	Richard Hammond's Invisible Worlds) for more examples.
 
 # Project Vault
 
