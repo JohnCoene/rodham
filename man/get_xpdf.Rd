@@ -4,10 +4,10 @@
 \alias{get_xpdf}
 \title{Get pdf to text extractor (xpdf)}
 \usage{
-get_xpdf(dest = "C:/")
+get_xpdf(dest = getwd())
 }
 \arguments{
-\item{dest}{Destination folder defaults to \code{C:/}}
+\item{dest}{Destination folder defaults to \code{getwd()}}
 }
 \value{
 Returns full path to pdftotext executable
