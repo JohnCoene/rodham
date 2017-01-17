@@ -1,3 +1,8 @@
+# rodham 0.0.2:9000
+
+* Fixed `get_xpdf` function now correctly returns path
+* Changed `get_xpdf` default `dest` argument to `getwd()`
+
 # rodham 0.0.2
 
 * Added `get_xpdf` to download and unzip [xpdf](http://www.foolabs.com/xpdf).
