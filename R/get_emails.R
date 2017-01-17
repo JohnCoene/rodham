@@ -72,9 +72,6 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   if (!dir.exists(save.dir)) {
     stop("save.dir does not exist")
   }
-  if(!file.exists(extractor)){
-    stop("wrong path to extractor")
-  }
   v <- suppressWarnings(system(paste(extractor, "-v"))) # test extractor
   if (!v %in% c(99, 0, 1, 2, 3)) {
     stop("incorrect path to extractor, see get_xpdf")
