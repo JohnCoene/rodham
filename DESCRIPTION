@@ -1,7 +1,7 @@
 Package: rodham
 Type: Package
 Title: Fetch Hillary Rodham Clinton's Emails
-Version: 0.0.3:9000
+Version: 0.0.3
 Authors@R: c(
     person("John", "Coene", , "jcoenep@gmail.com", role = c("aut", "cre")))
 Maintainer: John Coene <jcoenep@gmail.com>
