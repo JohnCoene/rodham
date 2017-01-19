@@ -1,6 +1,11 @@
-# rodham 0.0.2:9000
+# rodham 0.0.2
+
+## Bug fixes
 
 * Fixed `get_xpdf` function now correctly returns path
+
+## Minor changes
+
 * Changed `get_xpdf` default `dest` argument to `getwd()`
 
 # rodham 0.0.2
