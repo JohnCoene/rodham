@@ -43,6 +43,8 @@
 #' })
 #' }
 #'
+#' @keywords internal
+#'
 #' @importFrom methods is
 #' @importFrom utils URLencode download.file setTxtProgressBar txtProgressBar
 #' @importFrom utils unzip

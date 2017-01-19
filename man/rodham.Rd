@@ -55,4 +55,5 @@ content <- lapply(1:length(files), function(x){
 }
 
 }
+\keyword{internal}
 
