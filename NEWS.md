@@ -2,11 +2,12 @@
 
 ## Bug fixes
 
-* Fixed `get_xpdf` function now correctly returns path
+* Fixed `get_xpdf` function: now correctly returns path to extractor
 
 ## Minor changes
 
 * Changed `get_xpdf` default `dest` argument to `getwd()`
+* Checks for extractor location as it cannot be used in D: drive on windows (must be in C:) 
 
 # rodham 0.0.2
 
