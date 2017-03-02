@@ -5,11 +5,9 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rodham)](https://cran.r-project.org/package=rodham)
 [![CRAN_DL_Badge](http://cranlogs.r-pkg.org/badges/grand-total/rodham)](http://cranlogs.r-pkg.org/badges/grand-total/rodham)
 
-![img](https://raw.githubusercontent.com/JohnCoene/projects/gh-pages/img/modals/rodham.JPG)
-
 # rodham
 
-Fetch and process Hillary Rodham Clinton's *personal* emails.
+Fetch and process Hillary Rodham Clinton's *personal* emails. See [site](http://john-coene.com/packages/rodham/) for more details.
 
 ## Installation
 
@@ -46,7 +44,3 @@ content <- lapply(1:length(files), function(x){
     readLines(paste0(emails_bengh, "/", files[[x]]))
 })
 ```
-
-# Project Vault
-
-See other projects at [http://johncoene.github.io/projects/](http://johncoene.github.io/projects/)
