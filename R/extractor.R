@@ -17,6 +17,7 @@
 #' @export
 get_xpdf <- function(dest = getwd()){
   os <- Sys.info()['sysname'] # get os
+  checkOS(os, dest)
   lst <- OStoURI(os) # check os
   temp_zip <- tempfile(fileext = lst$ext) # create temp
   download.file(lst$uri, destfile = temp_zip) # download

@@ -34,3 +34,20 @@ OStoURI <- function(x){
   lst <- list(uri = uri, ext = ext)
   return(lst)
 }
+
+checkOS <- function(os, dest){
+  dest <- substr(dest, 1, 3)
+  if(os == "Windows" && !dest %in% "C:/"){
+    x <- ""
+    while(!tolower(x) %in% c("y", "n")){
+      x <- readline(prompt = paste("You are on Windows and installing in",
+                                   dest, "drive. It is adviced to install it in",
+                                   "C:/ (even on 64 bit) \n\nProceed anyway? [y/n]\n"))
+    }
+    if(tolower(x) != "y") stop("Change dest directory")
+  }
+}
+
+
+
+
