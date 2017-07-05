@@ -49,4 +49,3 @@ j_s <- search_emails(from = "Jake Sullivan", start = as.Date("2014-01-01"))
 \author{
 John Coene \email{jcoenep@gmail.com}
 }
-

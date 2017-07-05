@@ -35,6 +35,26 @@ OStoURI <- function(x){
   return(lst)
 }
 
+decompress_fun <- function(temp_zip){
+  if(length(temp_zip[grep("tar.gz", temp_zip)])){
+    return(untar)
+  } else if(length(temp_zip[grep("zip", temp_zip)])){
+    return(unzip)
+  }
+}
+
+OS2folder <- function(x){
+  if(x == "Windows"){
+    folder <- "win"
+  } else if (x == "Linux"){
+    folder <- "linux"
+  } else if(x == "Darwin") {
+    folder <- "mac"
+  }
+  folder <- paste0("/xpdfbin-", folder, "-3.04/bin64/")
+  return(folder)
+}
+
 checkOS <- function(os, dest){
   dest <- substr(dest, 1, 3)
   if(os == "Windows" && !dest %in% "C:/"){
@@ -42,7 +62,7 @@ checkOS <- function(os, dest){
     while(!tolower(x) %in% c("y", "n")){
       x <- readline(prompt = paste("You are on Windows and installing in",
                                    dest, "drive. It is adviced to install it in",
-                                   "C:/ (even on 64 bit) \n\nProceed anyway? [y/n]\n"))
+                                   "C:/ (even on 64 bit) \nProceed anyway? [y/n]\n"))
     }
     if(tolower(x) != "y") stop("Change dest directory")
   }

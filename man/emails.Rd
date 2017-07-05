@@ -27,4 +27,3 @@ A dataset containing 29444 emails from/to Hillary Rodham Clinton
 sent/received between 2009-08-14 and 2014-08-13.
 }
 \keyword{datasets}
-

@@ -24,6 +24,7 @@ rodham: Hillary Rodham Clinton emails
 \item \code{\link{get_xpdf}}
 }
 }
+
 \examples{
 \dontrun{
 # get emails from internal data set
@@ -56,4 +57,3 @@ content <- lapply(1:length(files), function(x){
 
 }
 \keyword{internal}
-

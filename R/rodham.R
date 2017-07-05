@@ -47,7 +47,7 @@
 #'
 #' @importFrom methods is
 #' @importFrom utils URLencode download.file setTxtProgressBar txtProgressBar
-#' @importFrom utils unzip
+#' @importFrom utils unzip untar
 #'
 #' @docType package
 #' @name rodham

@@ -48,7 +48,7 @@
 #'                      extractor = ext)
 #'
 #' # use manually downloaded extractor
-#' ext <- "C:/xpdfbin-win-3.04/bin64/pdftotext.exe"
+#' # ext <- "C:/xpdfbin-win-3.04/bin64/pdftotext.exe"
 #'
 #' # get emails related to Benghazi released in December
 #' emails_bengh <- get_emails(release = "Benghazi", extractor = ext,

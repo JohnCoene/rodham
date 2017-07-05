@@ -60,7 +60,7 @@ emails_aug <- get_emails(release = "August", save.dir = "./emails",
                      extractor = ext)
 
 # use manually downloaded extractor
-ext <- "C:/xpdfbin-win-3.04/bin64/pdftotext.exe"
+# ext <- "C:/xpdfbin-win-3.04/bin64/pdftotext.exe"
 
 # get emails related to Benghazi released in December
 emails_bengh <- get_emails(release = "Benghazi", extractor = ext,
@@ -73,10 +73,9 @@ content <- lapply(1:length(files), function(x){
 }
 
 }
-\author{
-John Coene \email{jcoenep@gmail.com}
-}
 \seealso{
 \code{\link{get_xpdf}}
 }
-
+\author{
+John Coene \email{jcoenep@gmail.com}
+}

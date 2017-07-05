@@ -24,10 +24,9 @@ edges <- edges_emails(emails)
 }
 
 }
-\author{
-John Coene \email{jcoenep@gmail.com}
-}
 \seealso{
 \code{\link{search_emails}}
 }
-
+\author{
+John Coene \email{jcoenep@gmail.com}
+}
