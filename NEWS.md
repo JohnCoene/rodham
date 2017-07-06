@@ -1,3 +1,10 @@
+# rodham 0.0.4
+
+## Bug fixes
+
+* `get_xpdf` now returns the correct path.
+* `get_xpdf` tested on Windows and Ubuntu
+
 # rodham 0.0.2
 
 ## Bug fixes

@@ -64,10 +64,31 @@ checkOS <- function(os, dest){
                                    dest, "drive. It is adviced to install it in",
                                    "C:/ (even on 64 bit) \nProceed anyway? [y/n]\n"))
     }
-    if(tolower(x) != "y") stop("Change dest directory")
+    if(tolower(x) != "y") stop("Change dest directory", call. = FALSE)
+  }
+
+  if(os == "mac"){
+    x <- ""
+    while(!tolower(x) %in% c("y", "n")){
+      x <- readline(prompt = paste0("You are running ", os, ".\n",
+                                   "get_xpdf has not been tested on your OS, would you like to continue anyway?"))
+    }
+    if(tolower(x) != "y") stop("Change dest directory", call. = FALSE)
   }
 }
 
 
-
+lin_warn <- function(){
+  os <- Sys.info()['sysname'] # get os
+  if(os == "Linux"){
+    x <- ""
+    while(!tolower(x) %in% c("y", "n")){
+      x <- readline(prompt = paste0("You are running ", os, ".\n",
+                                    "get_emails makes use of the tmp folder which by defaults requires root access, ",
+                                    "if so extarction will likely fail.",
+                                    "\nWould you like to continue anyway?"))
+    }
+    if(tolower(x) != "y") stop("Download manually", call. = FALSE)
+  }
+}
 

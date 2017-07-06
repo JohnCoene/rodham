@@ -4,7 +4,6 @@
 [![codecov](https://codecov.io/gh/JohnCoene/rodham/branch/master/graph/badge.svg)](https://codecov.io/gh/JohnCoene/rodham)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rodham)](https://cran.r-project.org/package=rodham)
 [![CRAN_status](http://www.r-pkg.org/badges/version-ago/rodham)](http://www.r-pkg.org/badges/version-ago/rodham)
-[![CRAN_DL_Badge](http://cranlogs.r-pkg.org/badges/grand-total/rodham)](http://cranlogs.r-pkg.org/badges/grand-total/rodham)
 
 # rodham
 

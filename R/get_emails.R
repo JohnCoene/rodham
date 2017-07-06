@@ -79,6 +79,7 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   if (!dir.exists(save.dir)) {
     stop("save.dir does not exist")
   }
+  lin_warn()
   uri <- checkRelease(release) # check release input and return URL
   temp_zip <- tempfile(fileext = ".zip") # create temp
   download.file(uri, destfile = temp_zip) # download
@@ -101,4 +102,50 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   close(pb)
   message("emails .txt files saved at: ", save.dir)
   return(save.dir)
+}
+
+
+#' Extract emails contents
+#'
+#' Extract content of manually downloaded emails.
+#'
+#' @param emails directory of folder including all pdf emails.
+#' @param save.dir destination folder where \code{txt} files will be extracted to.
+#' @param extractor path to extractor, see \code{\link{get_xpdf}}.
+#'
+#' @examples
+#' \dontrun{
+#' # emails manually downloaded from:
+#' # http://graphics.wsj.com/hillary-clinton-email-documents/zips/HRC_Email_296.zip
+#'
+#' # create directory to store extracted contents
+#' dir.create("emails_txt")
+#'
+#' ext <- get_xpdf()
+#'
+#' extarct_contents(emails = "HRC_Email_296", dest = "./emails_txt", extractor = ext)
+#' }
+#'
+#' @seealso \code{\link{get_xpdf}}
+#'
+#' @author John Coene \email{jcoenep@gmail.com}
+#'
+#' @export
+extract_contents <- function(emails, save.dir = getwd(), extractor){
+
+  if(missing(emails) || missing(extractor)) stop("must pass emails and extractor.")
+
+  files <- list.files(emails)  # list files
+  dest <- gsub(".pdf", ".txt", files) # extension
+  files <- files[grep("pdf", files)] # only take pdf files
+
+  pb <- txtProgressBar(style = 3)
+  for (i in 1:length(files)) {
+    pdf <- paste0(emails, "/", files[i])
+    txt <- paste0(save.dir, "/", dest[i])
+    system(paste(extractor, "-nopgbrk" , pdf, txt, sep = " "),
+           wait = TRUE)
+    setTxtProgressBar(pb, i/length(files))
+  }
+  close(pb)
 }
