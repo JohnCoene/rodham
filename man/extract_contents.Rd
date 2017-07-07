@@ -4,14 +4,15 @@
 \alias{extract_contents}
 \title{Extract emails contents}
 \usage{
-extract_contents(emails, save.dir = getwd(), extractor)
+extract_contents(release, save.dir = getwd(), extractor)
 }
 \arguments{
-\item{emails}{directory of folder including all pdf emails.}
+\item{release}{Name of the batch of release of emails; see details.}
 
-\item{save.dir}{destination folder where \code{txt} files will be extracted to.}
+\item{save.dir}{Directory where to save the extracted text defaults to
+\code{getwd()}}
 
-\item{extractor}{path to extractor, see \code{\link{get_xpdf}}.}
+\item{extractor}{Full path to pdf extractor \code{pdftotext}, see details.}
 }
 \description{
 Extract content of manually downloaded emails.

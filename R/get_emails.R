@@ -5,7 +5,7 @@
 #' @param release Name of the batch of release of emails; see details.
 #' @param save.dir Directory where to save the extracted text defaults to
 #' \code{getwd()}
-#' @param extractor Full path to pdf extractor (text to pdf), see details.
+#' @param extractor Full path to pdf extractor \code{pdftotext}, see details.
 #'
 #' @details Below are the valid values for \code{release}; follows the
 #' \href{http://graphics.wsj.com/hillary-clinton-email-documents/}{WSJ} naming
@@ -41,7 +41,7 @@
 #' ext <- get_xpdf()
 #'
 #' # create
-#' dir.create("./emails")
+#' dir.create("emails")
 #'
 #' # get emails released in august
 #' emails_aug <- get_emails(release = "August", save.dir = "./emails",
@@ -94,8 +94,7 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   for (i in 1:length(files)) {
     pdf <- paste0(temp_dir,"\\", files[i])
     txt <- paste0(save.dir,"/", dest[i])
-    system(paste(extractor, "-nopgbrk" , pdf, txt, sep = " "),
-           wait = TRUE)
+    system(paste(extractor, "-nopgbrk" , pdf, txt, sep = " "), wait = TRUE)
     setTxtProgressBar(pb, i/length(files))
   }
   unlink("temp_dir", recursive = TRUE) # delete temp once extracted
@@ -109,9 +108,7 @@ get_emails <- function(release, save.dir = getwd(), extractor){
 #'
 #' Extract content of manually downloaded emails.
 #'
-#' @param emails directory of folder including all pdf emails.
-#' @param save.dir destination folder where \code{txt} files will be extracted to.
-#' @param extractor path to extractor, see \code{\link{get_xpdf}}.
+#' @inheritParams get_emails
 #'
 #' @examples
 #' \dontrun{
@@ -131,21 +128,59 @@ get_emails <- function(release, save.dir = getwd(), extractor){
 #' @author John Coene \email{jcoenep@gmail.com}
 #'
 #' @export
-extract_contents <- function(emails, save.dir = getwd(), extractor){
+decompress <- function(release, save.dir = getwd(), extractor){
 
-  if(missing(emails) || missing(extractor)) stop("must pass emails and extractor.")
+  if(missing(release) || missing(extractor)) stop("must pass release and extractor.")
 
-  files <- list.files(emails)  # list files
+  files <- list.files(release)  # list files
   dest <- gsub(".pdf", ".txt", files) # extension
   files <- files[grep("pdf", files)] # only take pdf files
 
   pb <- txtProgressBar(style = 3)
   for (i in 1:length(files)) {
-    pdf <- paste0(emails, "/", files[i])
+    pdf <- paste0(release, "/", files[i])
     txt <- paste0(save.dir, "/", dest[i])
-    system(paste(extractor, "-nopgbrk" , pdf, txt, sep = " "),
-           wait = TRUE)
+    system(paste(extractor, "-nopgbrk" , pdf, txt, sep = " "), wait = TRUE)
     setTxtProgressBar(pb, i/length(files))
   }
   close(pb)
+}
+
+
+#' Download emails
+#'
+#' Download emails manually
+#'
+#' @param release Name of the batch of release of emails; see details.
+#' @param save.dir Directory where to save the extracted text defaults to
+#' \code{getwd()}
+#'
+#' @details Below are the valid values for \code{release}; follows the
+#' \href{http://graphics.wsj.com/hillary-clinton-email-documents/}{WSJ} naming
+#' convention.
+#' \itemize{
+#' \item Benghazi
+#' \item June
+#' \item July
+#' \item August
+#' \item September
+#' \item October
+#' \item November
+#' \item January 7
+#' \item January 29
+#' \item February 19
+#' \item february 29
+#' \item December
+#' \item Non-disclosure
+#' }
+#'
+#' @seealso \code{\link{get_xpdf}}
+#'
+#' @author John Coene \email{jcoenep@gmail.com}
+#'
+#' @export
+download_emails <- function(release, save.dir = getwd()){
+
+  if(missing(release)) stop("must pass release.")
+
 }

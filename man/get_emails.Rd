@@ -12,7 +12,7 @@ get_emails(release, save.dir = getwd(), extractor)
 \item{save.dir}{Directory where to save the extracted text defaults to
 \code{getwd()}}
 
-\item{extractor}{Full path to pdf extractor (text to pdf), see details.}
+\item{extractor}{Full path to pdf extractor \code{pdftotext}, see details.}
 }
 \value{
 Fetches email zip file from the WSJ and extract text files in

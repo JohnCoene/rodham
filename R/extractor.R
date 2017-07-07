@@ -14,7 +14,7 @@
 #'   \item{Linux}
 #' }
 #'
-#' @return Returns full path to pdftotext executable
+#' @return Returns full path to \code{pdftotext} executable
 #'
 #' @seealso \code{\link{get_emails}}
 #'
