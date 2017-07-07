@@ -123,7 +123,7 @@ get_emails <- function(release, save.dir = getwd(), extractor){
 #' extarct_contents(emails = "HRC_Email_296", dest = "./emails_txt", extractor = ext)
 #' }
 #'
-#' @seealso \code{\link{get_xpdf}}
+#' @seealso \code{\link{get_xpdf}}, \code{\link{download_emails}}
 #'
 #' @author John Coene \email{jcoenep@gmail.com}
 #'
@@ -152,7 +152,7 @@ decompress <- function(release, save.dir = getwd(), extractor){
 #' Download emails manually
 #'
 #' @param release Name of the batch of release of emails; see details.
-#' @param save.dir Directory where to save the extracted text defaults to
+#' @param save.dir Directory where to save the downloaded emails, defaults to
 #' \code{getwd()}
 #'
 #' @details Below are the valid values for \code{release}; follows the
@@ -174,7 +174,7 @@ decompress <- function(release, save.dir = getwd(), extractor){
 #' \item Non-disclosure
 #' }
 #'
-#' @seealso \code{\link{get_xpdf}}
+#' @seealso \code{\link{get_xpdf}}, \code{\link{decompress}}
 #'
 #' @author John Coene \email{jcoenep@gmail.com}
 #'
@@ -182,5 +182,8 @@ decompress <- function(release, save.dir = getwd(), extractor){
 download_emails <- function(release, save.dir = getwd()){
 
   if(missing(release)) stop("must pass release.")
+
+  uri <- checkRelease(release) # check release input and return URL
+  download.file(uri, destfile = save.dir) # download
 
 }

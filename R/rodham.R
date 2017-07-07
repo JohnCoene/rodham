@@ -7,10 +7,12 @@
 #'
 #' @section Functions:
 #' \itemize{
-#' \item \code{\link{search_emails}}
-#' \item \code{\link{edges_emails}}
-#' \item \code{\link{get_emails}}
-#' \item \code{\link{get_xpdf}}
+#'   \item \code{\link{search_emails}}
+#'   \item \code{\link{edges_emails}}
+#'   \item \code{\link{get_emails}}
+#'   \item \code{\link{get_xpdf}}
+#'   \item \code{\link{decompress}}
+#'   \item \code{\link{download_emails}}
 #' }
 #'
 #' @examples

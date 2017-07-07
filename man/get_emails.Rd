@@ -53,7 +53,7 @@ unzip the text to pdf extractor. See examples.
 ext <- get_xpdf()
 
 # create
-dir.create("./emails")
+dir.create("emails")
 
 # get emails released in august
 emails_aug <- get_emails(release = "August", save.dir = "./emails",
