@@ -53,14 +53,9 @@
 #' # get emails related to Benghazi released in December
 #' emails_bengh <- get_emails(release = "Benghazi", extractor = ext,
 #'                            save.dir = "./emails")
-#'
-#' files <- list.files(emails_bengh)
-#' content <- lapply(1:length(files), function(x){
-#'    readLines(paste0(emails_bengh, "/", files[[x]]))
-#' })
 #' }
 #'
-#' @seealso \code{\link{get_xpdf}}
+#' @seealso \code{\link{get_xpdf}}, \code{\link{download_emails}}, \code{\link{extract_emails}}
 #'
 #' @author John Coene \email{jcoenep@gmail.com}
 #'
@@ -112,8 +107,12 @@ get_emails <- function(release, save.dir = getwd(), extractor){
 #'
 #' @examples
 #' \dontrun{
-#' # emails manually downloaded from:
-#' # http://graphics.wsj.com/hillary-clinton-email-documents/zips/HRC_Email_296.zip
+#' # download emails
+#' download_emails("August") # August release
+#'
+#' dir.create("emails_pdf") # dir to extract zip
+#'
+#' unzip("August.zip", exdir = "./emails_pdf")
 #'
 #' # create directory to store extracted contents
 #' dir.create("emails_txt")

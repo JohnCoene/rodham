@@ -13,6 +13,8 @@
 #'   \item \code{\link{get_xpdf}}
 #'   \item \code{\link{extract_emails}}
 #'   \item \code{\link{download_emails}}
+#'   \item \code{\link{load_emails}}
+#'   \item \code{\link{extract_date}}
 #' }
 #'
 #' @examples
@@ -29,20 +31,28 @@
 #' cm <- igraph::walktrap.community(g)
 #' plot(cm, g)
 #'
+#' # get emails content
 #' # get extractor to extract content from emails
 #' ext <- get_xpdf()
 #'
-#' dir.create("./emails")
+#' dir.create("./emails") # create folder to store extracted content
 #'
 #' # get emails released in august
 #' aug_emails <- get_emails(release = "August", save.dir = "./emails",
 #'                          extractor = ext)
 #'
-#' # load txt files
-#' files <- list.files(aug_emails)
-#' content <- lapply(1:length(files), function(x){
-#'    readLines(paste0(aug_emails, "/", files[[x]]))
-#' })
+#' # alternatively
+#' # download emails as zip then extract
+#' download_emails("August") # download
+#'
+#' dir.create("emails_pdf") # create directory where to extract pdf emails to
+#'
+#' unzip("August.zip", exdir = "./emails_pdf")
+#'
+#' dir.create("emails_text")
+#'
+#' # extract emails to created directory
+#' extract_emails("emails_pdf", save.dir = "./emails_text", ext = ext)
 #' }
 #'
 #' @keywords internal

@@ -13,6 +13,7 @@ Imports:
     jsonlite,
     splitstackshape,
     plyr,
+    stringr,
     methods,
     utils
 RoxygenNote: 6.0.1

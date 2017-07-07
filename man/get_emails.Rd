@@ -65,16 +65,11 @@ emails_aug <- get_emails(release = "August", save.dir = "./emails",
 # get emails related to Benghazi released in December
 emails_bengh <- get_emails(release = "Benghazi", extractor = ext,
                            save.dir = "./emails")
-
-files <- list.files(emails_bengh)
-content <- lapply(1:length(files), function(x){
-   readLines(paste0(emails_bengh, "/", files[[x]]))
-})
 }
 
 }
 \seealso{
-\code{\link{get_xpdf}}
+\code{\link{get_xpdf}}, \code{\link{download_emails}}, \code{\link{extract_emails}}
 }
 \author{
 John Coene \email{jcoenep@gmail.com}

@@ -19,8 +19,12 @@ Extract content of manually downloaded emails.
 }
 \examples{
 \dontrun{
-# emails manually downloaded from:
-# http://graphics.wsj.com/hillary-clinton-email-documents/zips/HRC_Email_296.zip
+# download emails
+download_emails("August") # August release
+
+dir.create("emails_pdf") # dir to extract zip
+
+unzip("August.zip", exdir = "./emails_pdf")
 
 # create directory to store extracted contents
 dir.create("emails_txt")
