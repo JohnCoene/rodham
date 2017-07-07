@@ -36,7 +36,7 @@ convention.
 }
 }
 \seealso{
-\code{\link{get_xpdf}}, \code{\link{decompress}}
+\code{\link{get_xpdf}}, \code{\link{extract_emails}}
 }
 \author{
 John Coene \email{jcoenep@gmail.com}

@@ -128,14 +128,11 @@ get_emails <- function(release, save.dir = getwd(), extractor){
 #' @author John Coene \email{jcoenep@gmail.com}
 #'
 #' @export
-decompress <- function(release, save.dir = getwd(), extractor){
-
+extract_emails <- function(release, save.dir = getwd(), extractor){
   if(missing(release) || missing(extractor)) stop("must pass release and extractor.")
-
   files <- list.files(release)  # list files
   dest <- gsub(".pdf", ".txt", files) # extension
   files <- files[grep("pdf", files)] # only take pdf files
-
   pb <- txtProgressBar(style = 3)
   for (i in 1:length(files)) {
     pdf <- paste0(release, "/", files[i])
@@ -174,16 +171,13 @@ decompress <- function(release, save.dir = getwd(), extractor){
 #' \item Non-disclosure
 #' }
 #'
-#' @seealso \code{\link{get_xpdf}}, \code{\link{decompress}}
+#' @seealso \code{\link{get_xpdf}}, \code{\link{extract_emails}}
 #'
 #' @author John Coene \email{jcoenep@gmail.com}
 #'
 #' @export
 download_emails <- function(release, save.dir = getwd()){
-
   if(missing(release)) stop("must pass release.")
-
   uri <- checkRelease(release) # check release input and return URL
-  download.file(uri, destfile = save.dir) # download
-
+  download.file(uri, destfile = paste0(save.dir, "/", release, ".zip")) # download
 }

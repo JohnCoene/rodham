@@ -22,7 +22,7 @@ rodham: Hillary Rodham Clinton emails
   \item \code{\link{edges_emails}}
   \item \code{\link{get_emails}}
   \item \code{\link{get_xpdf}}
-  \item \code{\link{decompress}}
+  \item \code{\link{extract_emails}}
   \item \code{\link{download_emails}}
 }
 }
