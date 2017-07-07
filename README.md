@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/JohnCoene/rodham/badge.svg?branch=master)](https://coveralls.io/github/JohnCoene/rodham?branch=master)
 [![codecov](https://codecov.io/gh/JohnCoene/rodham/branch/master/graph/badge.svg)](https://codecov.io/gh/JohnCoene/rodham)
 [![CRAN](https://img.shields.io/cran/v/rodham.svg)]()
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rodham)](https://cran.r-project.org/package=rodham)
+[![CRAN_Status_Badge](http://cranlogs.r-pkg.org/badges/rodham)](http://cranlogs.r-pkg.org/badges/rodham)
 
 # rodham
 
