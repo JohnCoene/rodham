@@ -4,7 +4,7 @@
 \alias{extract_emails}
 \title{Extract emails contents}
 \usage{
-extract_emails(release, save.dir = getwd(), extractor)
+extract_emails(release, save.dir = getwd(), extractor, ...)
 }
 \arguments{
 \item{release}{Name of the batch of release of emails; see details.}
@@ -13,6 +13,8 @@ extract_emails(release, save.dir = getwd(), extractor)
 \code{getwd()}}
 
 \item{extractor}{Full path to pdf extractor \code{pdftotext}, see details.}
+
+\item{...}{additional parameters to pass to \code{pdftotext}.}
 }
 \description{
 Extract content of manually downloaded emails.

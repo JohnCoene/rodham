@@ -4,7 +4,7 @@
 #'
 #' @param dir directory where \code{txt} emails can be found.
 #'
-#' @return named \code{list} of emails.
+#' @return named \code{list} of emails; names are file names without extension.
 #'
 #' @examples
 #' \dontrun{
@@ -47,7 +47,7 @@ load_emails <- function(dir){
 #'
 #' @param emails list of email contents, as returned by \code{\link{load_emails}}
 #'
-#' @return named \code{list} of emails.
+#' @return named \code{list} of dates where names are emails/files name.
 #'
 #' @examples
 #' \dontrun{

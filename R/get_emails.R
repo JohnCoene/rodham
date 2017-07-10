@@ -6,6 +6,7 @@
 #' @param save.dir Directory where to save the extracted text defaults to
 #' \code{getwd()}
 #' @param extractor Full path to pdf extractor \code{pdftotext}, see details.
+#' @param ... additional parameters to pass to \code{pdftotext}.
 #'
 #' @details Below are the valid values for \code{release}; follows the
 #' \href{http://graphics.wsj.com/hillary-clinton-email-documents/}{WSJ} naming
@@ -60,7 +61,7 @@
 #' @author John Coene \email{jcoenep@gmail.com}
 #'
 #' @export
-get_emails <- function(release, save.dir = getwd(), extractor){
+get_emails <- function(release, save.dir = getwd(), extractor, ...){
   if (missing(extractor)) {
     stop("Missing extractor, see get_extractor")
   }
@@ -89,7 +90,7 @@ get_emails <- function(release, save.dir = getwd(), extractor){
   for (i in 1:length(files)) {
     pdf <- paste0(temp_dir,"\\", files[i])
     txt <- paste0(save.dir,"/", dest[i])
-    system(paste(extractor, "-nopgbrk" , pdf, txt, sep = " "), wait = TRUE)
+    system(paste(extractor, "-enc UTF-8 -nopgbrk", ..., pdf, txt, sep = " "), wait = TRUE)
     setTxtProgressBar(pb, i/length(files))
   }
   unlink("temp_dir", recursive = TRUE) # delete temp once extracted
@@ -127,7 +128,7 @@ get_emails <- function(release, save.dir = getwd(), extractor){
 #' @author John Coene \email{jcoenep@gmail.com}
 #'
 #' @export
-extract_emails <- function(release, save.dir = getwd(), extractor){
+extract_emails <- function(release, save.dir = getwd(), extractor, ...){
   if(missing(release) || missing(extractor)) stop("must pass release and extractor.")
   files <- list.files(release)  # list files
   dest <- gsub(".pdf", ".txt", files) # extension
@@ -136,7 +137,7 @@ extract_emails <- function(release, save.dir = getwd(), extractor){
   for (i in 1:length(files)) {
     pdf <- paste0(release, "/", files[i])
     txt <- paste0(save.dir, "/", dest[i])
-    system(paste(extractor, "-nopgbrk" , pdf, txt, sep = " "), wait = TRUE)
+    system(paste(extractor, "-enc UTF-8 -nopgbrk", ..., pdf, txt, sep = " "), wait = TRUE)
     setTxtProgressBar(pb, i/length(files))
   }
   close(pb)

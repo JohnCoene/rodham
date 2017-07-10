@@ -10,7 +10,7 @@ extract_date(emails)
 \item{emails}{list of email contents, as returned by \code{\link{load_emails}}}
 }
 \value{
-named \code{list} of emails.
+named \code{list} of dates where names are emails/files name.
 }
 \description{
 Exctract dates from emails

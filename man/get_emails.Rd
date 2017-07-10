@@ -4,7 +4,7 @@
 \alias{get_emails}
 \title{Get emails and its contents}
 \usage{
-get_emails(release, save.dir = getwd(), extractor)
+get_emails(release, save.dir = getwd(), extractor, ...)
 }
 \arguments{
 \item{release}{Name of the batch of release of emails; see details.}
@@ -13,6 +13,8 @@ get_emails(release, save.dir = getwd(), extractor)
 \code{getwd()}}
 
 \item{extractor}{Full path to pdf extractor \code{pdftotext}, see details.}
+
+\item{...}{additional parameters to pass to \code{pdftotext}.}
 }
 \value{
 Fetches email zip file from the WSJ and extract text files in

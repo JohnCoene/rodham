@@ -10,7 +10,7 @@ load_emails(dir)
 \item{dir}{directory where \code{txt} emails can be found.}
 }
 \value{
-named \code{list} of emails.
+named \code{list} of emails; names are file names without extension.
 }
 \description{
 Load all emails.
