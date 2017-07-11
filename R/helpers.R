@@ -34,9 +34,9 @@
 load_emails <- function(dir){
   files <- list.files(dir) # list files
   content <- lapply(1:length(files), function(x){
-    readLines(paste0(dir, "/", files[[x]]))
+    scan(paste0(dir, "/", files[[x]]), what="", sep="\n", blank.lines.skip = TRUE)
   })
-  names(content) <- gsub(".txt", "", files)
+  names(content) <- gsub(".txt", "", files) # name
   return(content)
 }
 

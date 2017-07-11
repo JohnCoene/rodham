@@ -24,23 +24,3 @@ rm_comments <- function(emails){
     return(x)
   })
 }
-
-#' Remove empty lines
-#'
-#' Remove empty lines
-#'
-#' @inherit rm_comments
-#'
-#' @examples
-#' \dontrun{
-#' emails <- load_emails(emails_bengh) # load emails
-#' emails <- rm_lines(emails)
-#' }
-#'
-#' @author John Coene \email{jcoenep@gmail.com}
-#'
-#' @export
-rm_lines <- function(emails){
-  if(missing(emails)) stop("must pass emails")
-  emails[lapply(emails, nchar) > 0]
-}
