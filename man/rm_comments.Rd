@@ -15,6 +15,7 @@ Remove comments
 \details{
 Example of comment removed
 \code{UNCLASSIFIED U.S. Department of State Case No. F-2014-20439 Doc No. C05765911 Date: 08/31/2015}
+look at the source code for more details \code{rm_comments}
 }
 \examples{
 \dontrun{
