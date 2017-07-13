@@ -125,7 +125,7 @@ extract_date <- function(emails){
 #'
 #' @export
 extract_address <- function(emails){
-  pat <- '([_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4}))'
+  pat <- '([_a-zA-z0-9-]+(\\.[_a-zA-z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-z]{2,4}))'
   d <- stringr::str_extract_all(string = emails, pattern = pat)
   names(d) <- names(emails)
   return(d)
