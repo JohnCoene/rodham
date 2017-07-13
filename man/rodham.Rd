@@ -25,8 +25,9 @@ rodham: Hillary Rodham Clinton emails
   \item \code{\link{extract_emails}}
   \item \code{\link{download_emails}}
   \item \code{\link{load_emails}}
-  \item \code{\link{extract_date}}
   \item \code{\link{clean_emails}}
+  \item \code{\link{extract_date}}
+  \item \code{\link{extract_address}}
 }
 }
 
@@ -62,10 +63,19 @@ dir.create("emails_pdf") # create directory where to extract pdf emails to
 
 unzip("August.zip", exdir = "./emails_pdf")
 
-dir.create("emails_text")
+dir <- "emails_text"
+
+dir.create(dir)
 
 # extract emails to created directory
 extract_emails("emails_pdf", save.dir = "./emails_text", ext = ext)
+
+contents <- load_emails(dir) # load all emails
+contents <- clean_email(contents)
+
+# helpers
+dates <- extract_date(contents)
+addresses <- extract_address(contents)
 }
 
 }
