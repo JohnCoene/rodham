@@ -3,6 +3,7 @@
 export(clean_emails)
 export(download_emails)
 export(edges_emails)
+export(extract_address)
 export(extract_date)
 export(extract_emails)
 export(get_emails)
