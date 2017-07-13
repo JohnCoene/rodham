@@ -7,6 +7,8 @@
 
 # rodham
 
+![benghazi](http://john-coene.com/img/thumbnails/echarts.png)
+
 Fetch and process Hillary Rodham Clinton's *personal* emails. See [site](http://john-coene.com/packages/rodham/) for more details.
 
 ## Installation
@@ -40,12 +42,47 @@ plot(g)
 #### Download contents
 
 ```R
-# get pdf extractor
-ext <- get_xpdf()
+ext <- get_xpdf() # get pdf extractor
 
 # get emails related to Benghazi released in December
 emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
 
 # load contents
 contents <- load_emails(emails_bengh)
+
+# clean emails
+contents <- clean_emails(contents)
+dates <- extract_date(emails)
+
+###
+Chart in header
+###
+
+dates_c <- do.call("c", dates)
+dates_count <- plyr::count(dates_c)
+
+library(echarts)
+
+dates_count %>% 
+  echart(x) %>% 
+  earea(
+    smooth = TRUE,
+    freq
+  ) %>% 
+  emark_point(
+    "all",
+    data = list(
+      list(type = "max", name = "maximum"),
+      list(type = "min", name = "minimum")
+    )
+  ) %>% 
+  etitle(
+    text = "Number of Emails",
+    subtext = "Benghazi release"
+  ) %>%
+  etooltip(
+    trigger = "axis"
+  ) %>% 
+  etoolbox_full() %>% 
+etheme("helianthus") 
 ```

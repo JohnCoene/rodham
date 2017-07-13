@@ -26,6 +26,7 @@ rodham: Hillary Rodham Clinton emails
   \item \code{\link{download_emails}}
   \item \code{\link{load_emails}}
   \item \code{\link{extract_date}}
+  \item \code{\link{clean_emails}}
 }
 }
 
