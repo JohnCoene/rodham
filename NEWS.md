@@ -1,9 +1,16 @@
-# rodham 0.0.4
+# rodham 0.1.0
+
+## Additions
+
+* `clean_emails` function to clean comments and other *less useful* lines added.
+* `load_emails` function to load all downloaded emails added.
+* `download_emails` function added to download specific release.
+* `extract_emails` function to parse downloaded emails (`download_emails`)
 
 ## Bug fixes
 
 * `get_xpdf` now returns the correct path.
-* `get_xpdf` tested on Windows and Ubuntu
+* `get_xpdf` tested on Windows and Ubuntu.
 
 # rodham 0.0.2
 
