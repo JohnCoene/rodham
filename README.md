@@ -88,3 +88,8 @@ dates_count %>%
   etoolbox_full() %>% 
 etheme("helianthus") 
 ```
+
+## Resources
+
+* [Search the emails online with the WSJ](http://graphics.wsj.com/hillary-clinton-email-documents/)
+* [Handy list of names from WSJ](https://github.com/wsjdata/clinton-email-cruncher/blob/master/HRCEMAIL_names.csv)
