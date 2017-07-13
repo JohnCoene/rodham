@@ -91,5 +91,5 @@ etheme("helianthus")
 
 ## Resources
 
-* [Search the emails online with the WSJ](http://graphics.wsj.com/hillary-clinton-email-documents/)
+* [Search the emails online with the WSJ](http://graphics.wsj.com/hillary-clinton-email-documents/) - `hrc_names` in package
 * [Handy list of names from WSJ](https://github.com/wsjdata/clinton-email-cruncher/blob/master/HRCEMAIL_names.csv)

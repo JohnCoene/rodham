@@ -2,7 +2,8 @@
 #'
 #' @section Dataset:
 #' \itemize{
-#' \item{emails}{dataset of 29444 emails}
+#'  \item{emails}{dataset of 29444 emails}
+#'  \item{hrc_names}{list that pairs sender and recipient names provided by the State Department website}
 #' }
 #'
 #' @section Functions:
