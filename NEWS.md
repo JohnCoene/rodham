@@ -5,7 +5,8 @@
 * `clean_emails` function to clean comments and other *less useful* lines added.
 * `load_emails` function to load all downloaded emails added.
 * `download_emails` function added to download specific release.
-* `extract_emails` function to parse downloaded emails (`download_emails`)
+* `extract_emails` function to parse downloaded emails (`download_emails`).
+* `extract_date` & `extract_address` extract dates and email addresses from emails.
 
 ## Bug fixes
 
