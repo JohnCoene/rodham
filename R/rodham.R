@@ -15,9 +15,12 @@
 #'   \item \code{\link{extract_emails}}
 #'   \item \code{\link{download_emails}}
 #'   \item \code{\link{load_emails}}
-#'   \item \code{\link{clean_content}}
-#'   \item \code{\link{extract_date}}
-#'   \item \code{\link{extract_address}}
+#'   \item \code{\link{get_subject}}
+#'   \item \code{\link{get_or}}
+#'   \item \code{\link{get_com}}
+#'   \item \code{\link{get_interest}}
+#'   \item \code{\link{get_content}}
+#'   \item \code{\link{get_date}}
 #' }
 #'
 #' @examples
@@ -59,12 +62,16 @@
 #' # extract emails to created directory
 #' extract_emails("emails_pdf", save.dir = "./emails_text", ext = ext)
 #'
-#' contents <- load_emails(dir) # load all emails
-#' contents <- clean_email(contents)
+#' # laod all emails
+#' hrc_emails <- load_emails(dir)
 #'
-#' # helpers
-#' dates <- extract_date(contents)
-#' addresses <- extract_address(contents)
+#' class(hrc_emails)
+#'
+#' # methods
+#' dates <- get_date(hrc_emails)
+#' communication <- get_com(hrc_emails)
+#' cont <- get_content(hrc_emails) # get actual email content
+#' cont <- clean_content(cont) # clean content see help
 #' }
 #'
 #' @keywords internal

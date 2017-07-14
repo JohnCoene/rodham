@@ -126,21 +126,3 @@ You can clean the emails with `clean_content` it'll remove some comments and oth
 cont <- get_content(contents)
 cont <- clean_content(cont)
 ```
-
-## helpers
-
-### Dates
-
-You can extract the dates from each email with `extract_date`.
-
-```{r get dates, echo=TRUE, eval=FALSE}
-dates <- load_emails(contents)
-```
-
-### Addresses
-
-You can extract the dates from each email with `extract_address`.
-
-```{r get addresses, echo=TRUE, eval=FALSE}
-addresses <- load_emails(contents)
-```

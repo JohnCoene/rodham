@@ -52,6 +52,9 @@ emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
 # load contents
 hrc_emails <- load_emails(emails_bengh)
 
+print(hrc_emails)
+#> 4366 emails
+
 # get emails content
 cont <- get_content(hrc_email)
 
