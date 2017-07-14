@@ -51,9 +51,7 @@ emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
 contents <- load_emails(emails_bengh)
 
 # clean emails
-contents <- clean_emails(contents)
-addresses <- extract_address(contents) # extract all email addresses
-dates <- extract_date(emails) # extract all dates
+hrc_emails <- clean_emails(hrc_emails)
 
 ####
 # Chart in header
@@ -63,7 +61,9 @@ dates <- extract_date(emails) # extract all dates
 library(echarts)
 library(dplyr)
 
-from %>%
+communication <- get_com(hrc_emails) # number of other get_* methods exist
+
+communication %>%
   filter(from != "") %>%
   count(from) %>%
   echart(from) %>%
