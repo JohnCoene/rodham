@@ -122,6 +122,7 @@ get_content.rodham = function(emails) {
     x$content
   })
   names(x) <- names(emails)
+  return(x)
 }
 
 #' Get emails subjects
