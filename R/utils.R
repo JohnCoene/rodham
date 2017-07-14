@@ -92,3 +92,19 @@ lin_warn <- function(){
   }
 }
 
+constructEmails <- function(dir, files){
+  # get contents
+  contents <- lapply(1:length(files), function(x){
+    x <- scan(paste0(dir, "/", files[[x]]), what="", sep="\n", blank.lines.skip = TRUE)
+    list(content = x)
+  })
+  # document id
+  ids <- toupper(gsub(".txt", "", files))
+  docid <- ids
+  # get metadata
+  metadata <- emails[emails$docID %in% docid, ] # metadata
+  metadata <- apply(metadata, 1, as.list)
+  x <- mapply(c, metadata, contents, SIMPLIFY = FALSE) # merge lists
+  names(x) <- ids
+  structure(x, class = "rodham")
+}
