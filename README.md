@@ -41,6 +41,8 @@ plot(g)
 
 #### Download contents
 
+See "how-to" vignette for more examples! 
+
 ```R
 ext <- get_xpdf() # get pdf extractor
 
@@ -48,10 +50,13 @@ ext <- get_xpdf() # get pdf extractor
 emails_bengh <- get_emails(release = "Benghazi", extractor = ext)
 
 # load contents
-contents <- load_emails(emails_bengh)
+hrc_emails <- load_emails(emails_bengh)
+
+# get emails content
+cont <- get_content(hrc_email)
 
 # clean emails
-hrc_emails <- clean_emails(hrc_emails)
+cont <- clean_content(cont)
 
 ####
 # Chart in header
