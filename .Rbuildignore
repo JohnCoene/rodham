@@ -4,3 +4,4 @@
 ^revdep$
 ^appveyor\.yml$
 ^cran-comments\.md$
+^tests\.R$

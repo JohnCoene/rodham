@@ -59,34 +59,17 @@ dates <- extract_date(emails) # extract all dates
 # Chart in header
 ####
 
-dates_c <- do.call("c", dates)
-dates_count <- plyr::count(dates_c)
-
 # devtools::install_github("JohnCoene/echarts")
 library(echarts)
+library(dplyr)
 
-dates_count %>% 
-  echart(x) %>% 
-  earea(
-    smooth = TRUE,
-    freq
-  ) %>% 
-  emark_point(
-    "all",
-    data = list(
-      list(type = "max", name = "maximum"),
-      list(type = "min", name = "minimum")
-    )
-  ) %>% 
-  etitle(
-    text = "Number of Emails",
-    subtext = "Benghazi release"
-  ) %>%
-  etooltip(
-    trigger = "axis"
-  ) %>% 
-  etoolbox_full() %>% 
-etheme("helianthus") 
+from %>%
+  filter(from != "") %>%
+  count(from) %>%
+  echart(from) %>%
+  ecloud(n) %>%
+  etitle(text = "Email senders", subtext = "Benghazi release") %>%
+  etheme("helianthus")
 ```
 
 ## Resources

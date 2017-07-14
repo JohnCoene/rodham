@@ -4,10 +4,11 @@
 
 * `hrc_names` [list of names from WSJ](https://github.com/wsjdata/clinton-email-cruncher/blob/master/HRCEMAIL_names.csv)
 * `clean_emails` function to clean comments and other *less useful* lines added.
-* `load_emails` function to load all downloaded emails added.
+* `load_emails` function to load all downloaded emails added; returns object of class `rodham`.
 * `download_emails` function added to download specific release.
 * `extract_emails` function to parse downloaded emails (`download_emails`).
-* `extract_date` & `extract_address` extract dates and email addresses from emails.
+* `extract_date` & `extract_address` extract dates and email addresses from emails *content*.
+* `get_*` get methods to retrieve metadata and content from emails (`rodham` class) 
 
 ## Bug fixes
 
