@@ -38,18 +38,20 @@ plot(g, layout = igraph::layout.fruchterman.reingold(g),
 #  emails_bengh <- get_emails(release = "Benghazi", save.dir = "./rodham", extractor = xpdf)
 
 ## ----download emails, echo=TRUE, eval=FALSE------------------------------
-#  download_emails("August") # download specific release
+#  # download specific release
+#  dl <- download_emails("August") # returns full pass to zip
 #  
-#  dir.create("emails_pdf") # create a directory to export pdf to
+#  pdf <- "emails_pdf" # directory where pdf will be extracted to
+#  txt <- "emails.text" # directory where txt will be extracted to
 #  
-#  unzip("August.zip", exdir = "./emails_pdf")
+#  # create directories
+#  dir.create(pdf)
+#  dir.create(emails_bengh)
 #  
-#  emails_bengh <- "./emails_text" # directory where we'll export .txt files
-#  
-#  dir.create(emails_bengh) # create directory
+#  unzip(dl, exdir = pdf)
 #  
 #  # get emails released in august
-#  extract_emails("emails_pdf", save.dir = emails_bengh, extractor = ext)
+#  extract_emails(pdf, save.dir = txt, extractor = ext)
 
 ## ----read emails, echo=TRUE, eval=FALSE----------------------------------
 #  contents <- load_emails(emails_bengh)
@@ -57,10 +59,4 @@ plot(g, layout = igraph::layout.fruchterman.reingold(g),
 ## ----clean emails, echo=TRUE, eval=FALSE---------------------------------
 #  cont <- get_content(contents)
 #  cont <- clean_content(cont)
-
-## ----get dates, echo=TRUE, eval=FALSE------------------------------------
-#  dates <- load_emails(contents)
-
-## ----get addresses, echo=TRUE, eval=FALSE--------------------------------
-#  addresses <- load_emails(contents)
 

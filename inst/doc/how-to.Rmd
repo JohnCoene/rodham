@@ -98,18 +98,20 @@ emails_bengh <- get_emails(release = "Benghazi", save.dir = "./rodham", extracto
 Alternatively you may want to proceed step by step. This is particularly useful if your temp folder requires super user or if you want to keep the pdf files.
 
 ```{r download emails, echo=TRUE, eval=FALSE}
-download_emails("August") # download specific release
+# download specific release
+dl <- download_emails("August") # returns full pass to zip
 
-dir.create("emails_pdf") # create a directory to export pdf to
+pdf <- "emails_pdf" # directory where pdf will be extracted to
+txt <- "emails.text" # directory where txt will be extracted to
 
-unzip("August.zip", exdir = "./emails_pdf")
+# create directories
+dir.create(pdf)
+dir.create(emails_bengh)
 
-emails_bengh <- "./emails_text" # directory where we'll export .txt files
-
-dir.create(emails_bengh) # create directory
+unzip(dl, exdir = pdf)
 
 # get emails released in august
-extract_emails("emails_pdf", save.dir = emails_bengh, extractor = ext)
+extract_emails(pdf, save.dir = txt, extractor = ext)
 ```
 
 ## Load the emails
@@ -125,22 +127,4 @@ You can clean the emails with `clean_content` it'll remove some comments and oth
 ```{r clean emails, echo=TRUE, eval=FALSE}
 cont <- get_content(contents)
 cont <- clean_content(cont)
-```
-
-## helpers
-
-### Dates
-
-You can extract the dates from each email with `extract_date`.
-
-```{r get dates, echo=TRUE, eval=FALSE}
-dates <- load_emails(contents)
-```
-
-### Addresses
-
-You can extract the dates from each email with `extract_address`.
-
-```{r get addresses, echo=TRUE, eval=FALSE}
-addresses <- load_emails(contents)
 ```
