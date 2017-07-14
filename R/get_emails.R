@@ -171,6 +171,8 @@ extract_emails <- function(release, save.dir = getwd(), extractor, ...){
 #' \item Non-disclosure
 #' }
 #'
+#' @return Returns full path to downloaded zip or tar.
+#'
 #' @seealso \code{\link{get_xpdf}}, \code{\link{extract_emails}}
 #'
 #' @author John Coene \email{jcoenep@gmail.com}
@@ -180,4 +182,5 @@ download_emails <- function(release, save.dir = getwd()){
   if(missing(release)) stop("must pass release.")
   uri <- checkRelease(release) # check release input and return URL
   download.file(uri, destfile = paste0(save.dir, "/", release, ".zip")) # download
+  return(paste0(save.dir, "/", release, ".zip"))
 }

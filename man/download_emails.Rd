@@ -12,6 +12,9 @@ download_emails(release, save.dir = getwd())
 \item{save.dir}{Directory where to save the downloaded emails, defaults to
 \code{getwd()}}
 }
+\value{
+Returns full path to downloaded zip or tar.
+}
 \description{
 Download emails manually
 }
