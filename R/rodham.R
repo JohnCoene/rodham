@@ -15,7 +15,7 @@
 #'   \item \code{\link{extract_emails}}
 #'   \item \code{\link{download_emails}}
 #'   \item \code{\link{load_emails}}
-#'   \item \code{\link{clean_emails}}
+#'   \item \code{\link{clean_content}}
 #'   \item \code{\link{extract_date}}
 #'   \item \code{\link{extract_address}}
 #' }
