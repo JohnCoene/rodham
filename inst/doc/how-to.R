@@ -55,7 +55,8 @@ plot(g, layout = igraph::layout.fruchterman.reingold(g),
 #  contents <- load_emails(emails_bengh)
 
 ## ----clean emails, echo=TRUE, eval=FALSE---------------------------------
-#  contents <- clean_emails(contents)
+#  cont <- get_content(contents)
+#  cont <- clean_content(cont)
 
 ## ----get dates, echo=TRUE, eval=FALSE------------------------------------
 #  dates <- load_emails(contents)

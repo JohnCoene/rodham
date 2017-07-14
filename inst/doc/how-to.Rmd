@@ -120,10 +120,11 @@ Now we can read the `.txt` files in R to a named list where the each email is na
 contents <- load_emails(emails_bengh)
 ```
 
-You can clean the emails with `clean_emails` it'll remove some comments and other unwanted lines.
+You can clean the emails with `clean_content` it'll remove some comments and other unwanted lines.
 
 ```{r clean emails, echo=TRUE, eval=FALSE}
-contents <- clean_emails(contents)
+cont <- get_content(contents)
+cont <- clean_content(cont)
 ```
 
 ## helpers
