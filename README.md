@@ -56,7 +56,7 @@ print(hrc_emails)
 #> 4366 emails
 
 # get emails content
-cont <- get_content(hrc_email)
+cont <- get_content(hrc_emails)
 
 # clean emails
 cont <- clean_content(cont)
