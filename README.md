@@ -23,15 +23,6 @@ install.packages("rodham")
 devtools::install_github("JohnCoene/rodham")
 ```
 
-## What's new?
-
-Below are the new features not yet released on CRAN:
-
-* `tidy_emails` - a function that tidies emails into a neat tibble (ideal to use with [tidytext](http://tidytextmining.com))
-* `get_id` - returns emails document ids
-
-*For all changes version by version see `NEWS.md`*
-
 ## Example
 
 #### Data
@@ -78,9 +69,7 @@ cont <- clean_content(cont)
 library(echarts)
 library(dplyr)
 
-communication <- get_com(hrc_emails) # number of other get_* methods exist
-
-communication %>%
+get_com(hrc_emails) %>%
   filter(from != "") %>%
   count(from) %>%
   echart(from) %>%
