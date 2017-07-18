@@ -25,7 +25,8 @@ get_date.rodham = function(emails) {
   x <- sapply(emails, function(x){
     x$docDate
   })
-  data.frame(emails = as.character(names(x)), dates = as.Date(x), row.names = 1:length(x))
+  ids <- get_id(emails)
+  data.frame(emails = ids, dates = as.Date(x), row.names = 1:length(x))
 }
 
 #' Get emails communication
@@ -58,7 +59,8 @@ get_com.rodham = function(emails) {
   y <- sapply(emails, function(x){
     x$to
   })
-  data.frame(emails = names(x), from = x, to = y, row.names = 1:length(x))
+  ids <- get_id(emails)
+  data.frame(emails = ids, from = x, to = y, row.names = 1:length(x))
 }
 
 #' Get emails original communication
@@ -91,7 +93,8 @@ get_or.rodham = function(emails) {
   y <- sapply(emails, function(x){
     x$originalTo
   })
-  data.frame(emails = names(x), from = x, to = y, row.names = 1:length(x))
+  ids <- get_id(emails)
+  data.frame(emails = ids, from = x, to = y, row.names = 1:length(x))
 }
 
 #' Get emails original communication
@@ -121,7 +124,7 @@ get_content.rodham = function(emails) {
   x <- sapply(emails, function(x){
     x$content
   })
-  names(x) <- names(emails)
+  names(x) <- get_id(emails)
   return(x)
 }
 
@@ -152,7 +155,8 @@ get_subject.rodham = function(emails) {
   x <- sapply(emails, function(x){
     x$subject
   })
-  data.frame(emails = names(x), subject = x, row.names = 1:length(x))
+  ids <- get_id(emails)
+  data.frame(emails = ids, subject = x, row.names = 1:length(x))
 }
 
 #' Get emails interest
@@ -185,7 +189,8 @@ get_interest.rodham = function(emails) {
   y <- sapply(emails, function(x){
     x$not_interesting
   })
-  data.frame(emails = names(x), interesting = x, not_interesting = y, row.names = 1:length(x))
+  ids <- get_id(emails)
+  data.frame(emails = ids, interesting = x, not_interesting = y, row.names = 1:length(x))
 }
 
 #' Get emails ID
@@ -212,8 +217,7 @@ get_id <- function(emails){
 #' @method get_id rodham
 #' @export
 get_id.rodham = function(emails) {
-  y <- sapply(emails, function(x){
+  sapply(emails, function(x){
     x$docID
   })
-  y
 }
