@@ -29,6 +29,8 @@ Below are the new features not yet released on CRAN:
 
 * `tidy_emails` - a function that tidies emails into a neat tibble (ideal to use with [tidytext](http://tidytextmining.com))
 
+*For all changes version by version see `NEWS.md`*
+
 ## Example
 
 #### Data
