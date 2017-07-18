@@ -100,9 +100,12 @@ constructEmails <- function(dir, files){
   })
   # document id
   ids <- toupper(gsub(".txt", "", files))
-  docid <- ids
+  names(contents) <- ids
+  contents <- contents[order(names(contents), decreasing = FALSE)] # sort
   # get metadata
-  metadata <- emails[emails$docID %in% docid, ] # metadata
+  metadata <- emails[emails$docID %in% ids, ] # metadata
+  metadata <- metadata[with(metadata, order(docID)), ]
+  ids <- metadata$docID # override ids
   metadata <- apply(metadata, 1, as.list)
   x <- mapply(c, metadata, contents, SIMPLIFY = FALSE) # merge lists
   names(x) <- ids

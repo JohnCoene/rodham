@@ -2,6 +2,17 @@
 
 ## Additions
 
+* `tidy_emails` - returns tibble of emails content
+* `get_id` - returns emails document ids
+
+## Bug fixes
+
+* correct names returned by `load_emails`
+
+# rodham 0.1.0
+
+## Additions
+
 * `hrc_names` [list of names from WSJ](https://github.com/wsjdata/clinton-email-cruncher/blob/master/HRCEMAIL_names.csv)
 * `clean_content` function to clean comments and other *less useful* lines added.
 * `load_emails` function to load all downloaded emails added; returns object of class `rodham`.
