@@ -55,7 +55,8 @@ load_emails <- function(dir){
 #'
 #' @export
 tidy_emails <- function(content){
+  names <- names(content)
+  length <- sapply(content, length)
   content <- unlist(content)
-  emails <- names(content)
-  tibble::tibble(emails = emails, content = content)
+  tibble::tibble(emails = rep(names, length), content = content)
 }
