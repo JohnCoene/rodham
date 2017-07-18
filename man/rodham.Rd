@@ -11,8 +11,8 @@ rodham: Hillary Rodham Clinton emails
 \section{Dataset}{
 
 \itemize{
- \item{emails}{dataset of 29444 emails}
- \item{hrc_names}{list that pairs sender and recipient names provided by the State Department website}
+ \item{emails: }{dataset of 29444 emails}
+ \item{hrc_names: }{list that pairs sender and recipient names provided by the State Department website}
 }
 }
 
@@ -32,6 +32,7 @@ rodham: Hillary Rodham Clinton emails
   \item \code{\link{get_interest}}
   \item \code{\link{get_content}}
   \item \code{\link{get_date}}
+  \item \code{\link{tidy_emails}}
 }
 }
 
@@ -72,7 +73,7 @@ dir <- "emails_text"
 dir.create(dir)
 
 # extract emails to created directory
-extract_emails("emails_pdf", save.dir = "./emails_text", ext = ext)
+extract_emails("emails_pdf", save.dir = dir, ext = ext)
 
 # laod all emails
 hrc_emails <- load_emails(dir)
@@ -83,7 +84,12 @@ class(hrc_emails)
 dates <- get_date(hrc_emails)
 communication <- get_com(hrc_emails)
 cont <- get_content(hrc_emails) # get actual email content
+
 cont <- clean_content(cont) # clean content see help
+
+# tidy content
+cont <- tidy_emails(cont)
+head(cont)
 }
 
 }

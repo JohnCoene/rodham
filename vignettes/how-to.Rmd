@@ -128,3 +128,7 @@ You can clean the emails with `clean_content` it'll remove some comments and oth
 cont <- get_content(contents)
 cont <- clean_content(cont)
 ```
+
+### Methods
+
+`get_content` 
