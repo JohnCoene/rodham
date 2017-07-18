@@ -49,7 +49,7 @@ load_emails <- function(dir){
 #' tidy <- tidy_emails(content)
 #' }
 #'
-#' @return A two-column \code{tibble} with emails document id in one column (\code{docID}) and the email content in another
+#' @return A two-column \code{tibble} with emails document id in one column (\code{emails}) and the email \code{content} in another.
 #'
 #' @author John Coene \email{jcoenep@gmail.com}
 #'
@@ -57,5 +57,5 @@ load_emails <- function(dir){
 tidy_emails <- function(content){
   content <- unlist(content)
   emails <- names(content)
-  tibble::tibble(docID = emails, content = content)
+  tibble::tibble(emails = emails, content = content)
 }

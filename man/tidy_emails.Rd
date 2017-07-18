@@ -10,7 +10,7 @@ tidy_emails(content)
 \item{content}{email content as returned by \code{\link{get_content}}.}
 }
 \value{
-A two-column \code{tibble} with emails document id in one column (\code{docID}) and the email content in another
+A two-column \code{tibble} with emails document id in one column (\code{emails}) and the email \code{content} in another.
 }
 \description{
 Tidy email contents
