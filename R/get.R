@@ -187,3 +187,33 @@ get_interest.rodham = function(emails) {
   })
   data.frame(emails = names(x), interesting = x, not_interesting = y, row.names = 1:length(x))
 }
+
+#' Get emails ID
+#'
+#' Get emails' document id
+#'
+#' @title get_id: get emails subjects
+#' @param emails list of email contents, as returned by \code{\link{load_emails}}
+#' @examples
+#' \dontrun{
+#' emails <- load_emails("emails")
+#' docids <- get_id(emails)
+#' }
+#'
+#' @rdname get_id
+#' @export get_id
+get_id <- function(emails){
+  UseMethod("get_id")
+}
+
+#' @return vector of emails' document ids.
+#'
+#' @rdname get_id
+#' @method get_id rodham
+#' @export
+get_id.rodham = function(emails) {
+  y <- sapply(emails, function(x){
+    x$docID
+  })
+  y
+}
