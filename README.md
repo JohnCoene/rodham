@@ -25,6 +25,8 @@ devtools::install_github("JohnCoene/rodham")
 
 ## Example
 
+You will find more a in-depth walkthrough [here](http://john-coene.com/packages/rodham/).
+
 #### Data
 
 ```R
