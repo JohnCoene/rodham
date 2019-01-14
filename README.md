@@ -7,7 +7,7 @@
 
 # rodham
 
-![benghazi](http://john-coene.com/img/thumbnails/echarts.png)
+![](https://timedotcom.files.wordpress.com/2015/03/hillary-clinton.jpg)
 
 Fetch and process Hillary Rodham Clinton's *personal* emails. See [site](http://john-coene.com/packages/rodham/) for more details.
 
