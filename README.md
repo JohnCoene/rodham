@@ -7,7 +7,7 @@
 
 # rodham
 
-<img src="https://timedotcom.files.wordpress.com/2015/03/hillary-clinton.jpg" height="250px" align="left" />
+<img src="https://timedotcom.files.wordpress.com/2015/03/hillary-clinton.jpg" height="300px" align="left" />
 
 Fetch and process Hillary Rodham Clinton's *personal* emails. See [site](http://john-coene.com/packages/rodham/) for more details.
 
